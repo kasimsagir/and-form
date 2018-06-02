@@ -1,0 +1,12 @@
+ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/AEXML" "${PODS_CONFIGURATION_BUILD_DIR}/Alamofire" "${PODS_CONFIGURATION_BUILD_DIR}/BrightFutures" "${PODS_CONFIGURATION_BUILD_DIR}/Fuzi" "${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManagerSwift" "${PODS_CONFIGURATION_BUILD_DIR}/ISO8601" "${PODS_CONFIGURATION_BUILD_DIR}/KissXML" "${PODS_CONFIGURATION_BUILD_DIR}/Result" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftyJSON" "${PODS_CONFIGURATION_BUILD_DIR}/TextFieldEffects" "${PODS_CONFIGURATION_BUILD_DIR}/WSDL2Swift"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) $(SDKROOT)/usr/include/libxml2
+LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
+OTHER_CFLAGS = $(inherited) -iquote "${PODS_CONFIGURATION_BUILD_DIR}/AEXML/AEXML.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/Alamofire/Alamofire.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/BrightFutures/BrightFutures.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/Fuzi/Fuzi.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/ISO8601/ISO8601.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/KissXML/KissXML.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/Result/Result.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/SwiftyJSON/SwiftyJSON.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/TextFieldEffects/TextFieldEffects.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/WSDL2Swift/WSDL2Swift.framework/Headers"
+OTHER_LDFLAGS = $(inherited) -framework "AEXML" -framework "Alamofire" -framework "BrightFutures" -framework "Fuzi" -framework "IQKeyboardManagerSwift" -framework "ISO8601" -framework "KissXML" -framework "Result" -framework "SwiftyJSON" -framework "TextFieldEffects" -framework "WSDL2Swift"
+OTHER_SWIFT_FLAGS = $(inherited) "-D" "COCOAPODS"
+PODS_BUILD_DIR = ${BUILD_DIR}
+PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
+PODS_ROOT = ${SRCROOT}/Pods

@@ -1,0 +1,56 @@
+PODS:
+  - AEXML (4.3.0)
+  - Alamofire (4.7.2)
+  - BrightFutures (6.0.1):
+    - Result (~> 3.2.4)
+  - Fuzi (2.1.0)
+  - IQKeyboardManagerSwift (6.0.3)
+  - ISO8601 (0.6.0)
+  - KissXML (5.2.2)
+  - Result (3.2.4)
+  - SwiftyJSON (4.1.0)
+  - TextFieldEffects (1.4.0)
+  - WSDL2Swift (0.8.0):
+    - AEXML
+    - BrightFutures (< 7.0.0, >= 6.0.0-beta.1)
+    - Fuzi (~> 2.0)
+    - ISO8601
+
+DEPENDENCIES:
+  - Alamofire
+  - IQKeyboardManagerSwift
+  - KissXML
+  - SwiftyJSON
+  - TextFieldEffects
+  - WSDL2Swift (~> 0.8)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AEXML
+    - Alamofire
+    - BrightFutures
+    - Fuzi
+    - IQKeyboardManagerSwift
+    - ISO8601
+    - KissXML
+    - Result
+    - SwiftyJSON
+    - TextFieldEffects
+    - WSDL2Swift
+
+SPEC CHECKSUMS:
+  AEXML: bae92c01e0da64132fd72f748721cda07466032b
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  BrightFutures: 9c03dab79e73ffe504b7bafc15c5bfdaeee54890
+  Fuzi: 8c57344debff6d3a0c76a9e0f549152defdaaa48
+  IQKeyboardManagerSwift: 04e8679f85e496bb2c474eeb9284052f1b3c391c
+  ISO8601: d3ea3ba9b752820cf92c6b47a9ee327e9f0e13fc
+  KissXML: 4418f32138aec43797891845d682b00fc8cd4677
+  Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
+  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
+  TextFieldEffects: 4ee41b5216e674d55fb6ac25107bf1af7629176f
+  WSDL2Swift: 79e88684ce544126e3f07ad2a44c75b483c11c14
+
+PODFILE CHECKSUM: bb172d64c3f4e8826f38cbe3c22eb08f22fa3366
+
+COCOAPODS: 1.5.2

@@ -1,0 +1,6 @@
+framework module WSDL2Swift {
+  umbrella header "WSDL2Swift-umbrella.h"
+
+  export *
+  module * { export * }
+}
