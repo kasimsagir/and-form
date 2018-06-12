@@ -13,83 +13,26 @@ class SurveyTableViewController : UITableViewController, UITextViewDelegate {
     
     @IBOutlet weak var footerView: UIView!
     
-    var poll = Poll()
-    var answers : [AnswerRequestModel] = []
+    static var poll : [ZCRM_MOBILE_FORM_WS_ZcrmSSurveyQuestWs] = []
+    static var selectedChoices : [String] = []
     
     override func viewDidLoad() {
-        initPoll()
+        getPollRequest()
         tableView.tableHeaderView = footerView
         tableView.tableFooterView = UIView()
+        tableView.estimatedRowHeight = 400
     }
     
-    func initPoll(){
-        poll.id = 1
-        poll.date = Date().timeIntervalSince1970
-        poll.pollType = "GENERAL"
-        poll.title = "Title"
-        poll.sessionName = "Session"
-        
-        var pq = [PollQuestion]()
-        let pq1 = PollQuestion()
-        pq1.id = 1
-        pq1.questionText = "Uygulamamızı beğendiniz mi?"
-        pq1.choiceType = "RADIO"
-        pq1.choices = []
-        
-        let choice = PollQuestionChoice()
-        choice.id = 2
-        choice.text = "Evet"
-        pq1.choices?.append(choice)
-        
-        let choice2 = PollQuestionChoice()
-        choice2.id = 3
-        choice2.text = "Hayır"
-        pq1.choices?.append(choice2)
-        
-        let pq2 = PollQuestion()
-        pq2.id = 2
-        pq2.questionText = "Hangi kısmını/kısımlarını beğendiniz?"
-        pq2.choiceType = "CHECKBOX"
-        pq2.choices = []
-        
-        let choice3 = PollQuestionChoice()
-        choice3.id = 4
-        choice3.text = "Form Doldurma"
-        pq2.choices?.append(choice3)
-        
-        let choice4 = PollQuestionChoice()
-        choice4.id = 5
-        choice4.text = "Anket"
-        pq2.choices?.append(choice4)
-        
-        let pq3 = PollQuestion()
-        pq3.id = 1
-        pq3.questionText = "Lütfen görüş ve önerilerinizi giriniz."
-        pq3.choiceType = "FREE_TEXT"
-        pq3.choices = []
-        
-        
-        pq.append(pq1)
-        pq.append(pq2)
-        pq.append(pq1)
-        pq.append(pq2)
-        pq.append(pq1)
-        pq.append(pq2)
-        pq.append(pq3)
-        poll.questions = pq
-        initAnswers()
-        self.tableView.reloadData()
-    }
-    
-    func initAnswers(){
-        // CREATE ANSWERS
-        var temp : AnswerRequestModel?
-        for question in poll.questions! {
-            temp = AnswerRequestModel()
-            temp!.question.id = question.id
-            temp!.freeText = ""
-            temp!.selectedChoices = []
-            answers.append(temp!)
+    func getPollRequest(){
+        let client = ZCRM_MOBILE_FORM_WS(endpoint: "http://SSAGYCRMD01.anadolu.corp:8000/sap/bc/srt/rfc/sap/zcrm_mobile_form_ws/200/zcrm_mobile_form_ws/zcrm_mobile_form_ws")
+        let request = client.request(ZCRM_MOBILE_FORM_WS_ZcrmGetSurveyDataWs())
+        request.onComplete{
+            (r) in
+            print("\nTest: \(r)\n")
+            if let pollResponse = r.value?.EtSurveyData.item {
+                SurveyTableViewController.poll = pollResponse
+                self.tableView.reloadData()
+            }
         }
     }
     
@@ -99,41 +42,41 @@ class SurveyTableViewController : UITableViewController, UITextViewDelegate {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if poll.questions == nil {
-            return 0
-        }
-        return poll.questions!.count
+        return SurveyTableViewController.poll.count
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
-  
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let question = poll.questions![indexPath.row]
-        let choiseCount: Int = (question.choices?.count)!
-        let answer = answers[indexPath.row]
+        let question = SurveyTableViewController.poll[indexPath.row]
+        let choiseCount = question.Answers.item.count
+        let answers = question.Answers.item
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "QuestionsTableViewCell", for: indexPath) as! QuestionsTableViewCell
         
-        cell.lblQuestionText.text = question.questionText
+        cell.lblQuestionText.text = question.QuestionText
         
         for subView in cell.stackView.subviews as [UIView] {
             subView.removeFromSuperview()
         }
         
-        switch question.choiceType! {
-        case "RADIO":
+        switch question.Type {
+        case "SingleChoice":
             for i in 0 ..< choiseCount {
                 let button = UIButton()
-                let index = searhcInSelectedChoices(questionId: (indexPath.row), searchedChoiceId: question.choices![i].id!)
+                
+                let index = searchInSelectedChoices(id: answers[i].Id)
+                
                 if  index != -1 {
                     button.setImage(UIImage(named: "icon_radiobutton_checked"), for: .normal)
                 }else {
                     button.setImage(UIImage(named: "icon_radiobutton_unchecked"), for: .normal)
                 }
+                
                 button.contentHorizontalAlignment = .left
-                button.setTitle(question.choices![i].text, for: .normal)
+                button.setTitle(answers[i].Text, for: .normal)
                 button.setTitleColor(UIColor.black, for: .normal)
                 button.titleLabel?.textAlignment = .left
                 button.heightAnchor.constraint(equalToConstant: 45.0).isActive = true
@@ -150,14 +93,16 @@ class SurveyTableViewController : UITableViewController, UITextViewDelegate {
         case "CHECKBOX":
             for i in 0 ..< choiseCount {
                 let chechboxbutton = UIButton()
-                let index = searhcInSelectedChoices(questionId: (indexPath.row), searchedChoiceId: question.choices![i].id!)
-                if index != -1 {
+                let index = searchInSelectedChoices(id: answers[i].Id)
+                
+                if  index != -1 {
                     chechboxbutton.setImage(UIImage(named: "icon_checkbox_checked"), for: .normal)
                 }else {
                     chechboxbutton.setImage(UIImage(named: "icon_checkbox_unchecked"), for: .normal)
                 }
+                
                 chechboxbutton.contentHorizontalAlignment = .left
-                chechboxbutton.setTitle(question.choices![i].text, for: .normal)
+                chechboxbutton.setTitle(answers[i].Text, for: .normal)
                 chechboxbutton.setTitleColor(UIColor.black, for: .normal)
                 chechboxbutton.titleLabel?.textAlignment = .left
                 chechboxbutton.heightAnchor.constraint(equalToConstant: 45.0).isActive = true
@@ -171,15 +116,14 @@ class SurveyTableViewController : UITableViewController, UITextViewDelegate {
                 cell.stackView.addArrangedSubview(chechboxbutton)
             }
             break
-        case "FREE_TEXT":
-            cell.backgroundColor = UIColor.white
+        case "Text":
             
             let textView = UITextView()
             textView.layer.borderColor = UIColor.darkGray.cgColor
             textView.layer.borderWidth = 1
             textView.layer.cornerRadius = 3
             textView.heightAnchor.constraint(equalToConstant: 30.0).isActive = true
-            textView.text  = answer.freeText
+            textView.text = answers[0].Text
             textView.textAlignment = .left
             textView.backgroundColor = UIColor.white
             textView.tag = indexPath.row
@@ -197,44 +141,95 @@ class SurveyTableViewController : UITableViewController, UITextViewDelegate {
     }
     
     @objc func onAnswer(sender: UIButton){
-        let question = sender.tag/100
-        let index = searhcInSelectedChoices(questionId: question, searchedChoiceId: poll.questions![question].choices![sender.tag % 100].id!)
+        let choiceId = SurveyTableViewController.poll[sender.tag/100].Answers.item[sender.tag%100].Id
+        let index = searchInSelectedChoices(id: choiceId)
         if index == -1 {
-            let choiceId = Id()
-            choiceId.id = poll.questions![question].choices![sender.tag % 100].id
-            self.answers[question].selectedChoices.append(choiceId)
+            SurveyTableViewController.selectedChoices.append(choiceId)
         }else {
-            self.answers[question].selectedChoices.remove(at: index)
+            SurveyTableViewController.selectedChoices.remove(at: index)
         }
         self.tableView.reloadData()
+        /*
+         let question = sender.tag/100
+         let index = searhcInSelectedChoices(questionId: question, searchedChoiceId: poll[question].Answers[sender.tag % 100].Id)
+         if index == -1 {
+         let choiceId = Id()
+         choiceId.id = poll.questions![question].choices![sender.tag % 100].id
+         self.answers[question].selectedChoices.append(choiceId)
+         }else {
+         self.answers[question].selectedChoices.remove(at: index)
+         }
+         self.tableView.reloadData()*/
     }
     
     @objc func onRadioButtonAnswer(sender: UIButton){
-        let question = sender.tag/100
-        let index = searhcInSelectedChoices(questionId: question, searchedChoiceId: sender.tag % 100)
+        let choiceId = SurveyTableViewController.poll[sender.tag/100].Answers.item[sender.tag%100].Id
+        let index = searchInSelectedChoices(id: choiceId)
         if index == -1 {
-            let choiceId = Id()
-            choiceId.id = poll.questions![question].choices![sender.tag % 100].id
-            self.answers[question].selectedChoices.removeAll()
-            self.answers[question].selectedChoices.append(choiceId)
+            let choiceIndex = searchRadioInSelectedChoices(questionId: sender.tag/100)
+            if choiceIndex != -1 {
+                SurveyTableViewController.selectedChoices.remove(at: choiceIndex)
+            }
+            SurveyTableViewController.selectedChoices.append(choiceId)
         }else {
-            self.answers[question].selectedChoices.remove(at: index)
+            SurveyTableViewController.selectedChoices.remove(at: index)
         }
         self.tableView.reloadData()
+        // self.tableView.reloadRows(at: [IndexPath(row: sender.tag/100, section: 0)], with: .automatic)
+        /*
+         let question = sender.tag/100
+         let index = searhcInSelectedChoices(questionId: question, searchedChoiceId: sender.tag % 100)
+         if index == -1 {
+         let choiceId = Id()
+         choiceId.id = poll.questions![question].choices![sender.tag % 100].id
+         self.answers[question].selectedChoices.removeAll()
+         self.answers[question].selectedChoices.append(choiceId)
+         }else {
+         self.answers[question].selectedChoices.remove(at: index)
+         }
+         self.tableView.reloadData()*/
     }
     
     func textViewDidChange(_ textView: UITextView) {
-        answers[textView.tag].freeText = textView.text
+        let choiceId = SurveyTableViewController.poll[textView.tag].Answers.item[0].Id
+        SurveyTableViewController.poll[textView.tag].Answers.item[0].Text = textView.text
+        let index = searchInSelectedChoices(id: choiceId)
+        if textView.text.isEmpty {
+            SurveyTableViewController.selectedChoices.remove(at: index)
+        }else if index == -1 {
+            SurveyTableViewController.selectedChoices.append(choiceId)
+        }
+        
     }
     
-    func searhcInSelectedChoices(questionId: Int, searchedChoiceId: Int)->Int{
-        for item in answers[questionId].selectedChoices {
-            if item.id == searchedChoiceId {
-                return answers[questionId].selectedChoices.index(of: item)!
+    func searchInSelectedChoices(id: String)->Int{
+        for item in SurveyTableViewController.selectedChoices {
+            if item == id {
+                return SurveyTableViewController.selectedChoices.index(of: item)!
             }
         }
         return -1
     }
     
-
+    func searchRadioInSelectedChoices(questionId: Int)->Int{
+        let answers = SurveyTableViewController.poll[questionId].Answers.item
+        for item in answers {
+            let index = searchInSelectedChoices(id: item.Id)
+            if index != -1 {
+                return index
+            }
+        }
+        return -1
+    }
+    /*
+     func searhcInSelectedChoices(questionId: Int, searchedChoiceId: String)->Int{
+     for item in answers[questionId].selectedChoices {
+     if item.id == searchedChoiceId {
+     return answers[questionId].selectedChoices.index(of: item)!
+     }
+     }
+     return -1
+     }*/
+    
+    
 }

@@ -25,13 +25,14 @@ public extension XSDType {
         let _ = envelope.addChild(name: "S:Header")
         let body = envelope.addChild(name: "S:Body")
         xmlElements(name: "tns:" + action).forEach {body.addChild($0)} // assumes "tns:" prefixed for all actions. JAX-WS requires prefixed or xmlns specification on this node.
+        
         return soapRequest
     }
 
     func xmlElements(name: String) -> [AEXMLElement] {
         let typeElement = AEXMLElement(name: name)
         for case let (k, v?, ns) in xmlParams {
-            let name = ns.isEmpty ? k : (ns + ":" + k)
+            let name = k    // ns.isEmpty ? k : (ns + ":" + k)
             let children = v.xmlElements(name: name)
             children.forEach {typeElement.addChild($0)}
         }
@@ -59,12 +60,13 @@ public extension WSDLService {
         let promise = Promise<O, WSDLOperationError>()
 
         let soapRequest = parameters.soapRequest(targetNamespace)
-        //        print("request to \(endpoint + path) using: \(soapRequest.xml)")
+                print("request to \(endpoint + path) using: \(soapRequest.xml)")
 
         var request = URLRequest(url: URL(string: endpoint)!.appendingPathComponent(path))
         request.httpMethod = "POST"
-        request.addValue("text/xml", forHTTPHeaderField: "Content-Type")
-        request.addValue("WSDL2Swift", forHTTPHeaderField: "User-Agent")
+        request.addValue("text/xml; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        //request.addValue("WSDL2Swift", forHTTPHeaderField: "User-Agent")
+        
         
         // NOTE - NOT TODO : USERNAME PASSWORD BASIC AUTH SOAP SERVİCE
         let authStr = String(format:"%@:%@", "danisman","1234567")
@@ -72,17 +74,18 @@ public extension WSDLService {
         let authValue = String(format:"Basic %@", (authData?.base64EncodedString(options:NSData.Base64EncodingOptions(rawValue: 0)))!)
         request.addValue(authValue, forHTTPHeaderField: "Authorization")
         // NOTE - NOT TODO : USERNAME PASSWORD BASIC AUTH SOAP SERVİCE
-        
+    
         
         if let data = soapRequest.xml.data(using: .utf8) {
-            //            request.addValue(String(data.length), forHTTPHeaderField: "Content-Length")
+            print(String(data.count))
+            request.addValue(String(data.count), forHTTPHeaderField: "Content-Length")
             request.httpBody = data
         }
-        //        NSLog("%@", "headers: \(request.allHTTPHeaderFields)")
+        NSLog("%@", "headers: \(request.allHTTPHeaderFields!)")
         request = interceptURLRequest?(request) ?? request
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             let (data, _, error) = self.interceptResponse?(data, response, error) ?? (data, response, error)
-            //            NSLog("%@", "\((response, error))")
+            NSLog("%@", "\((response, error))")
 
             if let error = error {
                 promise.failure(.urlSession(error))
@@ -93,7 +96,8 @@ public extension WSDLService {
                 promise.failure(.invalidXML)
                 return
             }
-//            NSLog("%@", "\(String(data: d, encoding: .utf8)!)")
+
+            NSLog("%@", "\(String(data: d, encoding: .utf8)!)")
 
             guard let soapMessage = SOAPMessage(xml: xml, targetNamespace: self.targetNamespace) else {
                 promise.failure(.invalidXMLContent)

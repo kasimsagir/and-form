@@ -6,7 +6,7 @@ PODS:
   - Fuzi (2.1.0)
   - IQKeyboardManagerSwift (6.0.3)
   - ISO8601 (0.6.0)
-  - KissXML (5.2.2)
+  - PKHUD (5.0.0)
   - Result (3.2.4)
   - SwiftyJSON (4.1.0)
   - TextFieldEffects (1.4.0)
@@ -19,7 +19,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - IQKeyboardManagerSwift
-  - KissXML
+  - PKHUD
   - SwiftyJSON
   - TextFieldEffects
   - WSDL2Swift (~> 0.8)
@@ -32,7 +32,7 @@ SPEC REPOS:
     - Fuzi
     - IQKeyboardManagerSwift
     - ISO8601
-    - KissXML
+    - PKHUD
     - Result
     - SwiftyJSON
     - TextFieldEffects
@@ -45,12 +45,12 @@ SPEC CHECKSUMS:
   Fuzi: 8c57344debff6d3a0c76a9e0f549152defdaaa48
   IQKeyboardManagerSwift: 04e8679f85e496bb2c474eeb9284052f1b3c391c
   ISO8601: d3ea3ba9b752820cf92c6b47a9ee327e9f0e13fc
-  KissXML: 4418f32138aec43797891845d682b00fc8cd4677
+  PKHUD: 3c001512c6e002091184197a8de7a20420786e3b
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
   TextFieldEffects: 4ee41b5216e674d55fb6ac25107bf1af7629176f
   WSDL2Swift: 79e88684ce544126e3f07ad2a44c75b483c11c14
 
-PODFILE CHECKSUM: bb172d64c3f4e8826f38cbe3c22eb08f22fa3366
+PODFILE CHECKSUM: 955ab12c46127b04b9f407cc36efba7bc78d1f35
 
 COCOAPODS: 1.5.2

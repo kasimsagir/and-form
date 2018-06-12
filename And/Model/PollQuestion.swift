@@ -13,7 +13,7 @@ class PollQuestion: NSObject {
     
     var id: Int?
     var questionText: String?
-    var choiceType: String? // [ RADIO, CHECKBOX, FREE_TEXT ]
+    var choiceType: String? // SingleChoice, Text
     var choices: [PollQuestionChoice]?
     
     static func objectMapping(jsonObject: JSON) -> PollQuestion {

@@ -11,5 +11,6 @@ target 'And' do
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'WSDL2Swift', '~> 0.8'
+  pod 'PKHUD'
 
 end

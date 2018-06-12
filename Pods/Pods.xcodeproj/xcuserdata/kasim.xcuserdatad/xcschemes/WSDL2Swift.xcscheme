@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "03BC96F9FAE51B6928C5B84559EAD908"
+               BlueprintIdentifier = "47CEEE141AE49010E0647ADC0AB89C75"
                BlueprintName = "WSDL2Swift"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "WSDL2Swift.framework">
