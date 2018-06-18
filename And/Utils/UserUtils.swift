@@ -281,6 +281,7 @@ class UserUtils {
     }
     
     static func resetUser(){
+        SurveyTableViewController.selectedChoices = []
         
         UserUtils.setNameFirst(NameFirst: "")
         UserUtils.setNameLast(NameLast: "")

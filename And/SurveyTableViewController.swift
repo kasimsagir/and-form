@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import PKHUD
 
 class SurveyTableViewController : UITableViewController, UITextViewDelegate {
     
@@ -24,14 +25,25 @@ class SurveyTableViewController : UITableViewController, UITextViewDelegate {
     }
     
     func getPollRequest(){
+        PKHUD.sharedHUD.show()
         let client = ZCRM_MOBILE_FORM_WS(endpoint: "http://SSAGYCRMD01.anadolu.corp:8000/sap/bc/srt/rfc/sap/zcrm_mobile_form_ws/200/zcrm_mobile_form_ws/zcrm_mobile_form_ws")
         let request = client.request(ZCRM_MOBILE_FORM_WS_ZcrmGetSurveyDataWs())
         request.onComplete{
             (r) in
+            PKHUD.sharedHUD.hide()
             print("\nTest: \(r)\n")
             if let pollResponse = r.value?.EtSurveyData.item {
                 SurveyTableViewController.poll = pollResponse
                 self.tableView.reloadData()
+                if SurveyTableViewController.poll.count == 0 {
+                    let alert = UIAlertController(title: "Hata", message: "İnternet bağlantınızda problem oluştu.", preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "Tekrar Dene", style: .default) {
+                        (result : UIAlertAction) -> Void in
+                        self.getPollRequest()
+                    }
+                    alert.addAction(okAction)
+                    self.present(alert, animated: true, completion: nil)
+                }
             }
         }
     }
