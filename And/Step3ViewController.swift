@@ -69,7 +69,15 @@ class Step3ViewController: UIViewController  {
     }
     
     func getPostData()->ZCRM_MOBILE_FORM_WS_ZcrmSCreateBpWs{
-        return ZCRM_MOBILE_FORM_WS_ZcrmSCreateBpWs.init(NameFirst: UserUtils.getNameFirst(), NameLast: UserUtils.getNameLast(), Birthdate: UserUtils.getFormatBirthdate(), Sex: UserUtils.getSex(), MaritalStat: UserUtils.getMaritalStat(), MobileNo: UserUtils.getMobileNo(), Email: UserUtils.getEmail(), Job: UserUtils.getJob(), Education: UserUtils.getEducation(), Company: UserUtils.getCompany(), Project: UserUtils.getProject(), Approval: UserUtils.getApproval(), Country: UserUtils.getCountry(), Region: UserUtils.getRegion(), City: UserUtils.getCity(), Street: UserUtils.getStreet(), HouseNo: UserUtils.getHouseNo(), DaireTip1: UserUtils.getApartmentType1(), DaireTip2: UserUtils.getApartmentType2(), DaireTip3: UserUtils.getApartmentType2(), DaireTip4: UserUtils.getApartmentType2(), SatinAmac: UserUtils.getPurposeType(), OdemeTercih: UserUtils.getPayType(), HaberdarOlma: UserUtils.getInformedType())
+        return ZCRM_MOBILE_FORM_WS_ZcrmSCreateBpWs.init(NameFirst: UserUtils.getNameFirst(), NameLast: UserUtils.getNameLast(), Birthdate: UserUtils.getFormatBirthdate(), Sex: UserUtils.getSex(), MaritalStat: UserUtils.getMaritalStat(), MobileNo: formatPhoneNumber(number: UserUtils.getMobileNo()), Email: UserUtils.getEmail(), Job: UserUtils.getJob(), Education: UserUtils.getEducation(), Company: UserUtils.getCompany(), Project: UserUtils.getProject(), Approval: UserUtils.getApproval(), Country: UserUtils.getCountry(), Region: UserUtils.getRegion(), City: UserUtils.getCity(), Street: UserUtils.getStreet(), HouseNo: UserUtils.getHouseNo(), DaireTip1: UserUtils.getApartmentType1(), DaireTip2: UserUtils.getApartmentType2(), DaireTip3: UserUtils.getApartmentType3(), DaireTip4: UserUtils.getApartmentType4(), SatinAmac: UserUtils.getPurposeType(), OdemeTercih: UserUtils.getPayType(), HaberdarOlma: UserUtils.getInformedType())
+    }
+    
+    func formatPhoneNumber(number: String) -> String{
+        var phoneNumber = number
+        phoneNumber.remove(at: phoneNumber.index(of: ")")!)
+        phoneNumber.remove(at: phoneNumber.startIndex)
+        phoneNumber.insert("0", at: phoneNumber.startIndex)
+        return phoneNumber
     }
     
     @IBAction func buttonAction(_ sender: UIButton) {
@@ -116,6 +124,7 @@ class Step3ViewController: UIViewController  {
         print(getPostData())
         request.onComplete{
             (r) in
+            print(r.value?.EtReturn.item[0].Type)
             PKHUD.sharedHUD.hide()
             UserUtils.resetUser()
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "startPage")
@@ -129,6 +138,7 @@ class Step3ViewController: UIViewController  {
         let request = client.request(ZCRM_MOBILE_FORM_WS_ZcrmCreateMobFormWs(IsData: getPostData()))
         request.onComplete{
             (r) in
+            print(r.value?.EtReturn.item[0].Type)
             PKHUD.sharedHUD.hide()
             UserUtils.setObjectId(ObjectId: r.value?.EvObjectId ?? "")
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "SurveyViewController") as! SurveyViewController

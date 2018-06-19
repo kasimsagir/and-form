@@ -45,21 +45,17 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     var countryData : [ZCRM_MOBILE_FORM_WS_BspWdDropdownLine] = []
     var jobs : [ZCRM_MOBILE_FORM_WS_ZcrmSJobSh] = []
     var cityData : [ZCRM_MOBILE_FORM_WS_BspWdDropdownLine] = []
-    var cityDetailData : [ZCRM_MOBILE_FORM_WS_BspWdDropdownLine] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initPicker()
         getJobs()
-        getCountry()
         showPicker()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         reloadDataFromUserDefaults()
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        
-        //picker.selectRow(211, inComponent: 0, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -78,9 +74,13 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         companyNameTextField.text = UserUtils.getCompany()
         telNoTextField.text = UserUtils.getMobileNo()
         emailTextField.text = UserUtils.getEmail()
-        countryTextField.text = UserUtils.getCountry()
-        cityTextField.text = UserUtils.getRegion()
-        cityDetailTextField.text = UserUtils.getCity()
+        countryTextField.text = UserUtils.getCountryName()
+        cityTextField.text = UserUtils.getRegionName()
+        getCountry()
+        if UserUtils.getCountry() != "" {
+            getCity(countryCode: UserUtils.getCountry())
+        }
+        
         switch UserUtils.getSex() {
         case "1":   //Kadın
             genderMale.isSelected = false
@@ -166,21 +166,13 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
                 self.cityData = cityResponse
                 self.cityData.insert(ZCRM_MOBILE_FORM_WS_BspWdDropdownLine(Key: "", Value: "-"), at: 0)
                 self.picker.reloadComponent(1)
-            }
-        }
-    }
-    
-    func getCityDetail(countryCode: String, regionCode: String){
-        PKHUD.sharedHUD.show()
-        let client = ZCRM_MOBILE_FORM_WS(endpoint: "http://SSAGYCRMD01.anadolu.corp:8000/sap/bc/srt/rfc/sap/zcrm_mobile_form_ws/200/zcrm_mobile_form_ws/zcrm_mobile_form_ws")
-        let request = client.request(ZCRM_MOBILE_FORM_WS_ZcrmGetFieldShWs(IvCountry: countryCode, IvFieldname: "CITY", IvRegion: regionCode))
-        request.onComplete{
-            (r) in
-            PKHUD.sharedHUD.hide()
-            if let cityDetailResponse = r.value?.EtValues.item {
-                self.cityDetailData = cityDetailResponse
-                self.cityDetailData.insert(ZCRM_MOBILE_FORM_WS_BspWdDropdownLine(Key: "", Value: "-"), at: 0)
-                self.picker.reloadComponent(2)
+                if self.cityData.count > 1 {
+                    self.picker.selectRow(1, inComponent: 1, animated: false)
+                    UserUtils.setRegion(Region: self.cityData[1].Key)
+                    UserUtils.setRegionName(RegionName: self.cityData[1].Value)
+                    self.cityTextField.text = self.cityData[1].Value
+                }
+
             }
         }
     }
@@ -215,24 +207,49 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
             UserUtils.setMaritalStat(MaritalStat: "0")
             break
         case edc1:
-            selectSenderAndDeselectOther(selected: edc1, deselectedButtons: [edc2,edc3,edc4,edc5])
-            UserUtils.setEducation(Education: "01")
+            if edc1.isSelected {
+                edc1.isSelected = false
+                UserUtils.setEducation(Education: "")
+            }else {
+                selectSenderAndDeselectOther(selected: edc1, deselectedButtons: [edc2,edc3,edc4,edc5])
+                UserUtils.setEducation(Education: "01")
+            }
             break
         case edc2:
-            selectSenderAndDeselectOther(selected: edc2, deselectedButtons: [edc1,edc3,edc4,edc5])
-            UserUtils.setEducation(Education: "02")
+            if edc2.isSelected {
+                edc2.isSelected = false
+                UserUtils.setEducation(Education: "")
+            }else {
+                selectSenderAndDeselectOther(selected: edc2, deselectedButtons: [edc1,edc3,edc4,edc5])
+                UserUtils.setEducation(Education: "02")
+            }
             break
         case edc3:
-            selectSenderAndDeselectOther(selected: edc3, deselectedButtons: [edc1,edc2,edc4,edc5])
-            UserUtils.setEducation(Education: "03")
+            if edc3.isSelected {
+                edc3.isSelected = false
+                UserUtils.setEducation(Education: "")
+            }else {
+                selectSenderAndDeselectOther(selected: edc3, deselectedButtons: [edc1,edc2,edc4,edc5])
+                UserUtils.setEducation(Education: "03")
+            }
             break
         case edc4:
-            selectSenderAndDeselectOther(selected: edc4, deselectedButtons: [edc1,edc2,edc3,edc5])
-            UserUtils.setEducation(Education: "04")
+            if edc4.isSelected {
+                edc4.isSelected = false
+                UserUtils.setEducation(Education: "")
+            }else {
+                selectSenderAndDeselectOther(selected: edc4, deselectedButtons: [edc1,edc2,edc3,edc5])
+                UserUtils.setEducation(Education: "04")
+            }
             break
         case edc5:
-            selectSenderAndDeselectOther(selected: edc5, deselectedButtons: [edc1,edc2,edc3,edc4])
-            UserUtils.setEducation(Education: "05")
+            if edc5.isSelected {
+                edc5.isSelected = false
+                UserUtils.setEducation(Education: "")
+            }else {
+                selectSenderAndDeselectOther(selected: edc5, deselectedButtons: [edc1,edc2,edc3,edc4])
+                UserUtils.setEducation(Education: "05")
+            }
             break
         default: break
         }
@@ -261,7 +278,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         }else if jobs.isEmpty {
             let alert = UIAlertController(title: "Hata", message: "Sunucuya bağlanamadı.", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "Tamam", style: .cancel)
+            let tryAction = UIAlertAction(title: "Tekrar Dene", style: .default) {
+                (result : UIAlertAction) -> Void in
+                self.getJobs()
+            }
             alert.addAction(okAction)
+            alert.addAction(tryAction)
             present(alert, animated: true, completion: nil)
         }else {
             dismissProblem = true
@@ -305,10 +327,25 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     }
     
     @IBAction func pickerViewDidBegin(_ sender: HoshiTextField) {
+        
+        if UserUtils.getCountry() == "" && !countryData.isEmpty {
+            picker.selectRow(1, inComponent: 0, animated: false)
+            UserUtils.setCountry(Country: countryData[1].Key)
+            UserUtils.setCountryName(CountryName: countryData[1].Value)
+            self.countryTextField.text = countryData[1].Value
+            getCity(countryCode: countryData[1].Key)
+        }
+        
+        
         if countryData.isEmpty && sender != telNoTextField {
             let alert = UIAlertController(title: "Hata", message: "Sunucuya bağlanamadı.", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "Tamam", style: .cancel)
+            let tryAction = UIAlertAction(title: "Tekrar Dene", style: .default) {
+                (result : UIAlertAction) -> Void in
+                self.getCountry()
+            }
             alert.addAction(okAction)
+            alert.addAction(tryAction)
             present(alert, animated: true, completion: nil)
         }
         switch sender {
@@ -433,7 +470,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     
     //PİCKER VİEW DELEGATE
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 3
+        return 2
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -442,8 +479,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
             return countryData.count
         case 1:
             return cityData.count
-        case 2:
-            return cityDetailData.count
         default:
             return 0
         }
@@ -455,8 +490,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
             return countryData[row].Value
         case 1:
             return cityData[row].Value
-        case 2:
-            return cityDetailData[row].Value
         default:
             return ""
         }
@@ -468,6 +501,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
             if row == 0 {
                 countryTextField.text = ""
                 UserUtils.setCountry(Country: "")
+                UserUtils.setCountryName(CountryName: "")
                 cityTextField.text = ""
                 UserUtils.setRegion(Region: "")
                 cityDetailTextField.text = ""
@@ -478,73 +512,104 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
             greenTextField(sender: countryTextField)
             getCity(countryCode: countryData[row].Key)
             UserUtils.setCountry(Country: countryData[row].Key)
+            UserUtils.setCountryName(CountryName: countryData[row].Value)
             break
         case 1:
             if row == 0 {
                 cityTextField.text = ""
                 UserUtils.setRegion(Region: "")
-                UserUtils.setRegion(Region: "")
+                UserUtils.setRegionName(RegionName: "")
                 cityDetailTextField.text = ""
                 UserUtils.setCity(City: "")
                 break
             }
             cityTextField.text = cityData[row].Value
             greenTextField(sender: cityTextField)
-            getCityDetail(countryCode: countryData[self.picker.selectedRow(inComponent: 0)].Key, regionCode: cityData[row].Key)
             UserUtils.setRegion(Region: cityData[row].Key)
+            UserUtils.setRegionName(RegionName: cityData[row].Value)
             break
-        case 2:
-            if row == 0 {
-                cityDetailTextField.text = ""
-                UserUtils.setCity(City: "")
-                break
-            }
-            cityDetailTextField.text = cityDetailData[row].Value
-            UserUtils.setCity(City: cityData[row].Key)
-            greenTextField(sender: cityDetailTextField)
         default:
             break
         }
     }
+    
     @IBAction func nextAction(_ sender: UIButton) {
+        // TODO - KALDIR BURAYI
+        if nameTextField.text == "kasim " {
+            let vc = storyboard?.instantiateViewController(withIdentifier: "Step2ViewController") as! Step2ViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
         if (nameTextField.text?.isEmpty)! {
             let alert = UIAlertController(title: "Uyarı", message: "Lütfen ad soyad giriniz.", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "Tamam", style: .cancel)
+            let okAction = UIAlertAction(title: "Tamam", style: .cancel) {
+                (result : UIAlertAction) -> Void in
+                self.view.endEditing(true)
+            }
             alert.addAction(okAction)
             present(alert, animated: true, completion: nil)
         }else if (birthdayTextField.text?.isEmpty)! {
             let alert = UIAlertController(title: "Uyarı", message: "Lütfen doğum tarihi giriniz.", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "Tamam", style: .cancel)
+            let okAction = UIAlertAction(title: "Tamam", style: .cancel) {
+                (result : UIAlertAction) -> Void in
+                self.view.endEditing(true)
+            }
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
+        }else if (datePicker.date.compare(Date()) == .orderedDescending ) {
+            let alert = UIAlertController(title: "Uyarı", message: "Lütfen geçerli doğum tarihi giriniz.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Tamam", style: .cancel) {
+                (result : UIAlertAction) -> Void in
+                self.view.endEditing(true)
+            }
             alert.addAction(okAction)
             present(alert, animated: true, completion: nil)
         }else if (telNoTextField.text?.isEmpty)! {
             let alert = UIAlertController(title: "Uyarı", message: "Lütfen telefon numarası giriniz.", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "Tamam", style: .cancel)
+            let okAction = UIAlertAction(title: "Tamam", style: .cancel) {
+                (result : UIAlertAction) -> Void in
+                self.view.endEditing(true)
+            }
             alert.addAction(okAction)
             present(alert, animated: true, completion: nil)
         }else if (emailTextField.text?.isEmpty)! {
             let alert = UIAlertController(title: "Uyarı", message: "Lütfen email giriniz.", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "Tamam", style: .cancel)
+            let okAction = UIAlertAction(title: "Tamam", style: .cancel) {
+                (result : UIAlertAction) -> Void in
+                self.view.endEditing(true)
+            }
             alert.addAction(okAction)
             present(alert, animated: true, completion: nil)
         }else if (genderMale.isSelected == false && genderFemale.isSelected == false) {
             let alert = UIAlertController(title: "Uyarı", message: "Lütfen cinsiyet seçiniz.", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "Tamam", style: .cancel)
+            let okAction = UIAlertAction(title: "Tamam", style: .cancel) {
+                (result : UIAlertAction) -> Void in
+                self.view.endEditing(true)
+            }
             alert.addAction(okAction)
             present(alert, animated: true, completion: nil)
         }else if (single.isSelected == false && married.isSelected == false) {
             let alert = UIAlertController(title: "Uyarı", message: "Lütfen medeni durum seçiniz.", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "Tamam", style: .cancel)
+            let okAction = UIAlertAction(title: "Tamam", style: .cancel) {
+                (result : UIAlertAction) -> Void in
+                self.view.endEditing(true)
+            }
             alert.addAction(okAction)
             present(alert, animated: true, completion: nil)
         }else if !isEmail(mailText: emailTextField.text!){
             let alert = UIAlertController(title: "Uyarı", message: "Lütfen gerçerli email giriniz.", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "Tamam", style: .cancel)
+            let okAction = UIAlertAction(title: "Tamam", style: .cancel) {
+                (result : UIAlertAction) -> Void in
+                self.view.endEditing(true)
+            }
             alert.addAction(okAction)
             present(alert, animated: true, completion: nil)
         }else if telNoTextField.text?.count != 12 {
             let alert = UIAlertController(title: "Uyarı", message: "Lütfen geçerli telefon numarası giriniz.", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "Tamam", style: .cancel)
+            let okAction = UIAlertAction(title: "Tamam", style: .cancel) {
+                (result : UIAlertAction) -> Void in
+                self.view.endEditing(true)
+            }
             alert.addAction(okAction)
             present(alert, animated: true, completion: nil)
         }else {

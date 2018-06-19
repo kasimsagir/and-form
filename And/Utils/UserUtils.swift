@@ -160,6 +160,16 @@ class UserUtils {
         defaults.synchronize()
     }
     
+    static func getCountryName()->String{
+        let defaults = UserDefaults.standard
+        return defaults.string(forKey: "CountryName") ?? ""
+    }
+    static func setCountryName(CountryName:String){
+        let defaults = UserDefaults.standard
+        defaults.set(CountryName, forKey: "CountryName")
+        defaults.synchronize()
+    }
+    
     static func getRegion()->String{
         let defaults = UserDefaults.standard
         return defaults.string(forKey: "Region") ?? ""
@@ -167,6 +177,16 @@ class UserUtils {
     static func setRegion(Region:String){
         let defaults = UserDefaults.standard
         defaults.set(Region, forKey: "Region")
+        defaults.synchronize()
+    }
+    
+    static func getRegionName()->String{
+        let defaults = UserDefaults.standard
+        return defaults.string(forKey: "RegionName") ?? ""
+    }
+    static func setRegionName(RegionName:String){
+        let defaults = UserDefaults.standard
+        defaults.set(RegionName, forKey: "RegionName")
         defaults.synchronize()
     }
     
@@ -297,7 +317,9 @@ class UserUtils {
         UserUtils.setProject(Project: "")
         UserUtils.setApproval(Approval: "")
         UserUtils.setCountry(Country: "")
+        UserUtils.setCountryName(CountryName: "")
         UserUtils.setRegion(Region: "")
+        UserUtils.setRegionName(RegionName: "")
         UserUtils.setCity(City: "")
         UserUtils.setStreet(Street: "")
         UserUtils.setHouseNo(HouseNo: "")

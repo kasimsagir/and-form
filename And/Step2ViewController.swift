@@ -12,11 +12,12 @@ import UIKit
 class Step2ViewController: UIViewController {
     @IBOutlet weak var project1Button: UIButton!
     @IBOutlet weak var project2Button: UIButton!
+    @IBOutlet weak var project3Button: UIButton!
     @IBOutlet weak var payType1: UIButton!
     @IBOutlet weak var payType2: UIButton!
     @IBOutlet weak var payType3: UIButton!
-    @IBOutlet weak var purposeType1: UIButton!
-    @IBOutlet weak var purposeType2: UIButton!
+    @IBOutlet weak var purposeType1: UIButton!  //OTURMA
+    @IBOutlet weak var purposeType2: UIButton! // YATIRIM
     @IBOutlet weak var apartmentType1: UIButton!
     @IBOutlet weak var apartmentType2: UIButton!
     @IBOutlet weak var apartmentType3: UIButton!
@@ -33,10 +34,17 @@ class Step2ViewController: UIViewController {
         case "PASTEL":
             project1Button.isSelected = true
             project2Button.isSelected = false
+            project3Button.isSelected = false
             break
         case "FREKANS":
             project1Button.isSelected = false
             project2Button.isSelected = true
+            project3Button.isSelected = false
+            break
+        case "BEYAZESYA":
+            project1Button.isSelected = false
+            project2Button.isSelected = false
+            project3Button.isSelected = true
             break
         default:
             project1Button.isSelected = false
@@ -110,8 +118,8 @@ class Step2ViewController: UIViewController {
                 UserUtils.setApartmentType3(ApartmentType3: "")
             }else if sender == apartmentType4 {
                 UserUtils.setApartmentType4(ApartmentType4: "")
-            }else if sender == purposeType1 {
-                if purposeType2.isSelected {
+            }else if sender == purposeType1 {   // OTURMA
+                if purposeType2.isSelected {    // YATIRIM
                     UserUtils.setPurposeType(PurposeType: "1")
                 }else {
                     UserUtils.setPurposeType(PurposeType: "")
@@ -163,6 +171,7 @@ class Step2ViewController: UIViewController {
             }
             project1Button.isSelected = true
             project2Button.isSelected = false
+            project3Button.isSelected = false
             UserUtils.setProject(Project: "PASTEL")
             break
         case project2Button:
@@ -173,7 +182,19 @@ class Step2ViewController: UIViewController {
             }
             project1Button.isSelected = false
             project2Button.isSelected = true
+            project3Button.isSelected = false
             UserUtils.setProject(Project: "FREKANS")
+            break
+        case project3Button:
+            if project3Button.isSelected {
+                project3Button.isSelected = false
+                UserUtils.setProject(Project: "")
+                break
+            }
+            project1Button.isSelected = false
+            project2Button.isSelected = false
+            project3Button.isSelected = true
+            UserUtils.setProject(Project: "BEYAZESYA")
             break
         case payType1:
             if payType1.isSelected {
