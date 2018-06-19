@@ -68,7 +68,7 @@ public extension WSDLService {
         //request.addValue("WSDL2Swift", forHTTPHeaderField: "User-Agent")
         
         
-        // NOTE - NOT TODO : USERNAME PASSWORD BASIC AUTH SOAP SERVİCE
+        // NOTE - NOT TODO : USERNAME PASSWORD BASICm AUTH SOAP SERVİCE
         let authStr = String(format:"%@:%@", "danisman","1234567")
         let authData = authStr.data(using:String.Encoding.ascii)
         let authValue = String(format:"Basic %@", (authData?.base64EncodedString(options:NSData.Base64EncodingOptions(rawValue: 0)))!)

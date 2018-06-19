@@ -113,6 +113,7 @@ class Step3ViewController: UIViewController  {
         PKHUD.sharedHUD.show()
         let client = ZCRM_MOBILE_FORM_WS(endpoint: "http://SSAGYCRMD01.anadolu.corp:8000/sap/bc/srt/rfc/sap/zcrm_mobile_form_ws/200/zcrm_mobile_form_ws/zcrm_mobile_form_ws")
         let request = client.request(ZCRM_MOBILE_FORM_WS_ZcrmCreateMobFormWs(IsData: getPostData()))
+        print(getPostData())
         request.onComplete{
             (r) in
             PKHUD.sharedHUD.hide()

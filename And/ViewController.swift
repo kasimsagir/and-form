@@ -477,7 +477,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
             countryTextField.text = countryData[row].Value
             greenTextField(sender: countryTextField)
             getCity(countryCode: countryData[row].Key)
-            UserUtils.setCountry(Country: countryData[row].Value)
+            UserUtils.setCountry(Country: countryData[row].Key)
             break
         case 1:
             if row == 0 {
@@ -491,7 +491,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
             cityTextField.text = cityData[row].Value
             greenTextField(sender: cityTextField)
             getCityDetail(countryCode: countryData[self.picker.selectedRow(inComponent: 0)].Key, regionCode: cityData[row].Key)
-            UserUtils.setRegion(Region: cityData[row].Value)
+            UserUtils.setRegion(Region: cityData[row].Key)
             break
         case 2:
             if row == 0 {
@@ -500,7 +500,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
                 break
             }
             cityDetailTextField.text = cityDetailData[row].Value
-            UserUtils.setCity(City: cityData[row].Value)
+            UserUtils.setCity(City: cityData[row].Key)
             greenTextField(sender: cityDetailTextField)
         default:
             break
