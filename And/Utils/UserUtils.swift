@@ -363,7 +363,6 @@ class UserUtils {
         UserUtils.setApartmentType4(ApartmentType4: "")
         UserUtils.setPurposeType(PurposeType: "")
         UserUtils.setInformedType(InformedType: "")
-        UserUtils.setObjectId(ObjectId: "")
     }
 }
 

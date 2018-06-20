@@ -102,7 +102,7 @@ class SurveyTableViewController : UITableViewController, UITextViewDelegate {
                 cell.stackView.addArrangedSubview(button)
             }
             break
-        case "CHECKBOX":
+        case "MultipleChoice":
             for i in 0 ..< choiseCount {
                 let chechboxbutton = UIButton()
                 let index = searchInSelectedChoices(id: answers[i].Id)

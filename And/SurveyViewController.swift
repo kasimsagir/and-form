@@ -50,15 +50,28 @@ class SurveyViewController : UIViewController {
             request.onComplete{
                 (r) in
                 PKHUD.sharedHUD.hide()
-                let alert = UIAlertController(title: "Teşekkürler", message: "Ankete katıldığınız için teşekkür ederiz.", preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "Bitir", style: .default) {
-                    (result : UIAlertAction) -> Void in
-                    UserUtils.resetUser()
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "startPage")
-                    self.present(vc!, animated: true, completion: nil)
+                if (r.value?.EtReturn.item[0].Type == "S") {
+                    let alert = UIAlertController(title: "Teşekkürler", message: "Ankete katıldığınız için teşekkür ederiz.", preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "Bitir", style: .default) {
+                        (result : UIAlertAction) -> Void in
+                        UserUtils.resetUser()
+                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "startPage")
+                        self.present(vc!, animated: true, completion: nil)
+                    }
+                    alert.addAction(okAction)
+                    self.present(alert, animated: true, completion: nil)
+                }else{
+                    let alert = UIAlertController(title: "Hata", message: "Sunucuya bağlanamadı.", preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "Tamam", style: .cancel)
+                    let tryAction = UIAlertAction(title: "Tekrar Dene", style: .default) {
+                        (result : UIAlertAction) -> Void in
+                        self.postAnswers()
+                    }
+                    alert.addAction(okAction)
+                    alert.addAction(tryAction)
+                    self.present(alert, animated: true, completion: nil)
                 }
-                alert.addAction(okAction)
-                self.present(alert, animated: true, completion: nil)
+
             }
         }
     }

@@ -123,11 +123,23 @@ class Step3ViewController: UIViewController  {
         let request = client.request(ZCRM_MOBILE_FORM_WS_ZcrmCreateMobFormWs(IsData: getPostData()))
         request.onComplete{
             (r) in
-            print(r.value?.EtReturn.item[0].Type)
             PKHUD.sharedHUD.hide()
-            UserUtils.setObjectId(ObjectId: r.value?.EvObjectId ?? "")
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "SurveyViewController") as! SurveyViewController
-            self.navigationController?.pushViewController(vc, animated: true)
+            if (r.value?.EtReturn.item[0].Type == "S") {
+                UserUtils.resetUser()
+                UserUtils.setObjectId(ObjectId: r.value?.EvObjectId ?? "")
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "SurveyViewController") as! SurveyViewController
+                self.navigationController?.pushViewController(vc, animated: true)
+            }else {
+                let alert = UIAlertController(title: "Hata", message: "Sunucuya bağlanamadı.", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "Tamam", style: .cancel)
+                let tryAction = UIAlertAction(title: "Tekrar Dene", style: .default) {
+                    (result : UIAlertAction) -> Void in
+                    self.callFormServiceToSurvey()
+                }
+                alert.addAction(okAction)
+                alert.addAction(tryAction)
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
     
@@ -139,8 +151,6 @@ class Step3ViewController: UIViewController  {
             alert.addAction(okAction)
             present(alert, animated: true, completion: nil)
         }else {
-            
-            
             let alert = UIAlertController(title: "Teşekkürler", message: "Katıldığınız için teşekkür ederiz. Göndermek için devam ediniz.", preferredStyle: .alert)
             let destructiveAction = UIAlertAction(title: "Vazgeç", style: .default)
             let okAction = UIAlertAction(title: "Devam Et", style: .default) {
