@@ -200,6 +200,36 @@ class UserUtils {
         defaults.synchronize()
     }
     
+    static func getCityDetail()->String{
+        let defaults = UserDefaults.standard
+        return defaults.string(forKey: "CityDetail") ?? ""
+    }
+    static func setCityDetail(CityDetail:String){
+        let defaults = UserDefaults.standard
+        defaults.set(CityDetail, forKey: "CityDetail")
+        defaults.synchronize()
+    }
+    
+    static func getTown()->String{
+        let defaults = UserDefaults.standard
+        return defaults.string(forKey: "Town") ?? ""
+    }
+    static func setTown(Town:String){
+        let defaults = UserDefaults.standard
+        defaults.set(Town, forKey: "Town")
+        defaults.synchronize()
+    }
+    
+    static func getPostCode()->String{
+        let defaults = UserDefaults.standard
+        return defaults.string(forKey: "PostCode") ?? ""
+    }
+    static func setPostCode(PostCode:String){
+        let defaults = UserDefaults.standard
+        defaults.set(PostCode, forKey: "PostCode")
+        defaults.synchronize()
+    }
+    
     static func getStreet()->String{
         let defaults = UserDefaults.standard
         return defaults.string(forKey: "Street") ?? ""
@@ -321,6 +351,9 @@ class UserUtils {
         UserUtils.setRegion(Region: "")
         UserUtils.setRegionName(RegionName: "")
         UserUtils.setCity(City: "")
+        UserUtils.setCityDetail(CityDetail: "")
+        UserUtils.setTown(Town: "")
+        UserUtils.setPostCode(PostCode: "")
         UserUtils.setStreet(Street: "")
         UserUtils.setHouseNo(HouseNo: "")
         UserUtils.setPayType(PayType: "")

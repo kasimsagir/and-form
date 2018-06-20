@@ -32,7 +32,6 @@ class SurveyViewController : UIViewController {
                 }
             }
         }
-        print(poll)
         let postData = ZCRM_MOBILE_FORM_WS_ZcrmCreateSurveyWs(IsSurveyData: ZCRM_MOBILE_FORM_WS_ZcrmSSurveyCreateWs(ObjectId: UserUtils.getObjectId(), Questions: ZCRM_MOBILE_FORM_WS_ZcrmTtSurveyQuestWs(item: poll)))
         return postData
     }
@@ -50,7 +49,6 @@ class SurveyViewController : UIViewController {
             let request = client.request(postData)
             request.onComplete{
                 (r) in
-                print("\nTest: \(r.value.debugDescription)\n")
                 PKHUD.sharedHUD.hide()
                 let alert = UIAlertController(title: "Teşekkürler", message: "Ankete katıldığınız için teşekkür ederiz.", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "Bitir", style: .default) {

@@ -474,10 +474,10 @@
                                         </connections>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="C58-jK-2qJ">
-                                        <rect key="frame" x="20" y="599" width="384" height="50"/>
+                                        <rect key="frame" x="20" y="599" width="691" height="50"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ülke" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8eP-6I-B3C" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                                <rect key="frame" x="0.0" y="0.0" width="115" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="152" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="textColor"/>
@@ -504,7 +504,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="İl" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rGT-lF-ju8" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                                <rect key="frame" x="134.5" y="0.0" width="115" height="50"/>
+                                                <rect key="frame" x="179.5" y="0.0" width="152" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="textColor"/>
@@ -531,12 +531,12 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="İlçe" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0lC-zA-gpY" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                                <rect key="frame" x="269" y="0.0" width="115" height="50"/>
+                                                <rect key="frame" x="359" y="0.0" width="152.5" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="street-address"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
                                                         <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -552,43 +552,167 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="pickerViewDidBegin:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="FVX-Iz-Pwe"/>
-                                                    <action selector="pickerViewDidEnd:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="uly-O4-ujS"/>
+                                                    <action selector="addressDidEnd:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="REv-PS-mwR"/>
+                                                    <action selector="addressEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="Yix-q9-WXk"/>
                                                     <outlet property="delegate" destination="BYZ-38-t0r" id="ePz-eq-8kc"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Kent" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mG8-Fs-MCE" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                                <rect key="frame" x="538.5" y="0.0" width="152.5" height="50"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="street-address"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                        <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                        <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="addressDidEnd:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="w77-Bz-AIy"/>
+                                                    <action selector="addressEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="naO-oK-Vb7"/>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="hNP-t6-qOg"/>
                                                 </connections>
                                             </textField>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="0lC-zA-gpY" firstAttribute="width" secondItem="rGT-lF-ju8" secondAttribute="width" id="5GB-sR-nVY"/>
-                                            <constraint firstItem="8eP-6I-B3C" firstAttribute="width" secondItem="C58-jK-2qJ" secondAttribute="width" multiplier="0.3" id="Ohz-iq-vfm"/>
+                                            <constraint firstItem="mG8-Fs-MCE" firstAttribute="height" secondItem="0lC-zA-gpY" secondAttribute="height" id="CUR-bf-KDc"/>
+                                            <constraint firstItem="8eP-6I-B3C" firstAttribute="width" secondItem="C58-jK-2qJ" secondAttribute="width" multiplier="0.22" id="Ohz-iq-vfm"/>
+                                            <constraint firstItem="0lC-zA-gpY" firstAttribute="width" secondItem="rGT-lF-ju8" secondAttribute="width" id="SEf-fO-qaS"/>
                                             <constraint firstItem="rGT-lF-ju8" firstAttribute="width" secondItem="8eP-6I-B3C" secondAttribute="width" id="eBt-c9-irU"/>
+                                            <constraint firstItem="0lC-zA-gpY" firstAttribute="height" secondItem="rGT-lF-ju8" secondAttribute="height" id="fC9-1W-e8G"/>
+                                            <constraint firstItem="mG8-Fs-MCE" firstAttribute="width" secondItem="0lC-zA-gpY" secondAttribute="width" id="sjY-d4-N8m"/>
                                         </constraints>
                                     </stackView>
-                                    <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Adres" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mG8-Fs-MCE" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                        <rect key="frame" x="60" y="261" width="984" height="50"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="street-address"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
-                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
-                                                <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
-                                                <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
-                                                <real key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="textFieldEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="K6e-Zz-G1p"/>
-                                            <outlet property="delegate" destination="BYZ-38-t0r" id="hNP-t6-qOg"/>
-                                        </connections>
-                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="I2x-8S-7vj">
+                                        <rect key="frame" x="230" y="675" width="166" height="18"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mahalle" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y8z-73-lkk" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                                <rect key="frame" x="0.0" y="0.0" width="36.5" height="18"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="street-address"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                        <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                        <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="addressDidEnd:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="ado-tK-kIs"/>
+                                                    <action selector="addressEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="D76-dj-KMs"/>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Xh6-MQ-wID"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Sokak" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8AJ-le-Txv" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                                <rect key="frame" x="43" y="0.0" width="36.5" height="18"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="street-address"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                        <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                        <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="addressDidEnd:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="iXP-8F-Dr1"/>
+                                                    <action selector="addressEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="cFr-n1-fWr"/>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="WOZ-tN-piF"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Konut No" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8aC-2q-mWe" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                                <rect key="frame" x="85.5" y="0.0" width="37" height="18"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="street-address"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                        <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                        <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="addressDidEnd:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="V0J-dz-uKi"/>
+                                                    <action selector="addressEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="l4M-Fe-ht8"/>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="DLl-e6-Ipf"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Posta Kodu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6nh-xX-FzU" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                                <rect key="frame" x="129" y="0.0" width="37" height="18"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="street-address"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                        <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                        <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="addressDidEnd:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="Lj6-r3-KHk"/>
+                                                    <action selector="addressEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="2ln-Si-7bu"/>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="D6M-kd-Gez"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="y8z-73-lkk" firstAttribute="width" secondItem="I2x-8S-7vj" secondAttribute="width" multiplier="0.22" id="5vz-S7-0HZ"/>
+                                            <constraint firstItem="8aC-2q-mWe" firstAttribute="height" secondItem="8AJ-le-Txv" secondAttribute="height" id="XZj-e1-t0X"/>
+                                            <constraint firstItem="6nh-xX-FzU" firstAttribute="height" secondItem="8aC-2q-mWe" secondAttribute="height" id="nVW-Pv-qQD"/>
+                                            <constraint firstItem="6nh-xX-FzU" firstAttribute="width" secondItem="8aC-2q-mWe" secondAttribute="width" id="vWc-Mt-iuq"/>
+                                            <constraint firstItem="8aC-2q-mWe" firstAttribute="width" secondItem="8AJ-le-Txv" secondAttribute="width" id="zMf-Wf-Qbl"/>
+                                            <constraint firstItem="8AJ-le-Txv" firstAttribute="width" secondItem="y8z-73-lkk" secondAttribute="width" id="zzg-Tt-ZXq"/>
+                                        </constraints>
+                                    </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ClI-in-SJ4">
                                         <rect key="frame" x="1242" y="1040" width="100" height="30"/>
                                         <constraints>
@@ -622,7 +746,6 @@
                                 <constraints>
                                     <constraint firstItem="C58-jK-2qJ" firstAttribute="leading" secondItem="cZx-ST-xsi" secondAttribute="leading" id="0RI-cA-8C1"/>
                                     <constraint firstItem="myd-d5-O65" firstAttribute="leading" secondItem="QFw-At-VMN" secondAttribute="trailing" id="107-4w-e7E"/>
-                                    <constraint firstItem="ClI-in-SJ4" firstAttribute="top" secondItem="C58-jK-2qJ" secondAttribute="bottom" constant="32" id="2gu-KN-V9f"/>
                                     <constraint firstItem="Tjp-xf-jde" firstAttribute="centerX" secondItem="3c3-si-yGO" secondAttribute="centerX" id="3aS-Q7-wkM"/>
                                     <constraint firstItem="l4F-TM-P6H" firstAttribute="top" secondItem="DY7-oi-hfN" secondAttribute="bottom" constant="16" id="3wz-h9-AEA"/>
                                     <constraint firstItem="QFw-At-VMN" firstAttribute="centerY" secondItem="Pgp-76-RkP" secondAttribute="centerY" id="4ME-5R-2Se"/>
@@ -630,7 +753,8 @@
                                     <constraint firstItem="3c3-si-yGO" firstAttribute="height" secondItem="MdY-jB-hkL" secondAttribute="height" id="6nJ-nZ-aaj"/>
                                     <constraint firstItem="cZx-ST-xsi" firstAttribute="centerX" secondItem="PbO-WH-yPK" secondAttribute="centerX" id="75K-5c-MoW"/>
                                     <constraint firstItem="Dbm-bz-4P2" firstAttribute="centerY" secondItem="VZ2-qX-h7t" secondAttribute="centerY" id="7lU-ep-hNg"/>
-                                    <constraint firstItem="C58-jK-2qJ" firstAttribute="width" secondItem="UMV-FG-j0q" secondAttribute="width" multiplier="0.5" id="8rL-kA-63K"/>
+                                    <constraint firstItem="C58-jK-2qJ" firstAttribute="width" secondItem="UMV-FG-j0q" secondAttribute="width" multiplier="0.9" id="8rL-kA-63K"/>
+                                    <constraint firstItem="I2x-8S-7vj" firstAttribute="top" secondItem="C58-jK-2qJ" secondAttribute="bottom" constant="16" id="CAp-f8-0J2"/>
                                     <constraint firstItem="myd-d5-O65" firstAttribute="height" secondItem="QFw-At-VMN" secondAttribute="height" id="CGz-AI-ooa"/>
                                     <constraint firstItem="LSW-DB-ygM" firstAttribute="centerY" secondItem="DLt-7V-Ukg" secondAttribute="centerY" id="CJk-JL-g08"/>
                                     <constraint firstItem="lQX-cc-NaJ" firstAttribute="centerY" secondItem="ClI-in-SJ4" secondAttribute="centerY" constant="-8" id="Cy1-FN-fef"/>
@@ -638,6 +762,7 @@
                                     <constraint firstItem="3pu-V9-oMb" firstAttribute="centerY" secondItem="46D-5n-dYu" secondAttribute="centerY" id="Ejz-Mu-gVx"/>
                                     <constraint firstItem="cZx-ST-xsi" firstAttribute="top" secondItem="PbO-WH-yPK" secondAttribute="bottom" constant="16" id="FBc-lW-bMM"/>
                                     <constraint firstItem="PbO-WH-yPK" firstAttribute="top" secondItem="Tjp-xf-jde" secondAttribute="bottom" constant="16" id="FiQ-h7-aXd"/>
+                                    <constraint firstItem="I2x-8S-7vj" firstAttribute="width" secondItem="C58-jK-2qJ" secondAttribute="width" id="FmK-XU-jSO"/>
                                     <constraint firstItem="3pu-V9-oMb" firstAttribute="height" secondItem="QFw-At-VMN" secondAttribute="height" id="GKf-oc-7ma"/>
                                     <constraint firstItem="QFw-At-VMN" firstAttribute="leading" secondItem="DLt-7V-Ukg" secondAttribute="leading" id="Guj-tq-Ee6"/>
                                     <constraint firstItem="46D-5n-dYu" firstAttribute="leading" secondItem="yiI-Vm-HbH" secondAttribute="leading" id="HgF-dc-64r"/>
@@ -651,14 +776,11 @@
                                     <constraint firstItem="DLt-7V-Ukg" firstAttribute="centerY" secondItem="yiI-Vm-HbH" secondAttribute="centerY" id="Sx3-Uv-UJp"/>
                                     <constraint firstItem="VZ2-qX-h7t" firstAttribute="centerY" secondItem="3pu-V9-oMb" secondAttribute="centerY" id="TOq-Qc-TO8"/>
                                     <constraint firstItem="Tjp-xf-jde" firstAttribute="height" secondItem="3c3-si-yGO" secondAttribute="height" id="U2Y-Ef-MFC"/>
-                                    <constraint firstItem="mG8-Fs-MCE" firstAttribute="centerY" secondItem="C58-jK-2qJ" secondAttribute="centerY" id="UHO-I7-4X0"/>
                                     <constraint firstItem="l4F-TM-P6H" firstAttribute="height" secondItem="MdY-jB-hkL" secondAttribute="height" id="Ury-Rd-5ep"/>
                                     <constraint firstAttribute="trailing" secondItem="l4F-TM-P6H" secondAttribute="trailing" constant="20" id="UuF-Wf-2lm"/>
                                     <constraint firstItem="JLG-vD-g7d" firstAttribute="centerY" secondItem="DY7-oi-hfN" secondAttribute="centerY" id="V1k-Q5-aEE"/>
-                                    <constraint firstItem="mG8-Fs-MCE" firstAttribute="leading" secondItem="C58-jK-2qJ" secondAttribute="trailing" constant="10" id="VTe-Rs-Thc"/>
                                     <constraint firstItem="VZ2-qX-h7t" firstAttribute="leading" secondItem="3pu-V9-oMb" secondAttribute="trailing" id="VVU-we-NKN"/>
                                     <constraint firstItem="ClI-in-SJ4" firstAttribute="leading" secondItem="lQX-cc-NaJ" secondAttribute="trailing" constant="16" id="ViH-sI-bm3"/>
-                                    <constraint firstItem="mG8-Fs-MCE" firstAttribute="trailing" secondItem="cZx-ST-xsi" secondAttribute="trailing" id="VoT-IC-JwS"/>
                                     <constraint firstItem="3c3-si-yGO" firstAttribute="width" secondItem="MdY-jB-hkL" secondAttribute="width" id="WIO-Jm-IZF"/>
                                     <constraint firstItem="C58-jK-2qJ" firstAttribute="top" secondItem="cZx-ST-xsi" secondAttribute="bottom" constant="16" id="Wtk-3C-DqG"/>
                                     <constraint firstItem="l4F-TM-P6H" firstAttribute="leading" secondItem="Pgp-76-RkP" secondAttribute="leading" id="X9w-0Y-E6a"/>
@@ -667,21 +789,23 @@
                                     <constraint firstItem="Tjp-xf-jde" firstAttribute="top" secondItem="3c3-si-yGO" secondAttribute="bottom" constant="16" id="YfM-1P-t1p"/>
                                     <constraint firstItem="C58-jK-2qJ" firstAttribute="height" secondItem="cZx-ST-xsi" secondAttribute="height" id="ZUn-C2-wPl"/>
                                     <constraint firstItem="Pgp-76-RkP" firstAttribute="leading" secondItem="yiI-Vm-HbH" secondAttribute="leading" id="b97-2R-pv2"/>
+                                    <constraint firstItem="I2x-8S-7vj" firstAttribute="height" secondItem="C58-jK-2qJ" secondAttribute="height" id="bOj-9g-Bu9"/>
                                     <constraint firstItem="3pu-V9-oMb" firstAttribute="leading" secondItem="46D-5n-dYu" secondAttribute="trailing" id="beS-n9-0Il"/>
                                     <constraint firstItem="3c3-si-yGO" firstAttribute="top" secondItem="MdY-jB-hkL" secondAttribute="bottom" constant="16" id="bhS-Si-UVG"/>
                                     <constraint firstItem="DLt-7V-Ukg" firstAttribute="leading" secondItem="yiI-Vm-HbH" secondAttribute="trailing" id="dUf-6v-9v9"/>
                                     <constraint firstItem="Dbm-bz-4P2" firstAttribute="height" secondItem="VZ2-qX-h7t" secondAttribute="height" id="hYn-w6-y0g"/>
                                     <constraint firstItem="Dbm-bz-4P2" firstAttribute="leading" secondItem="VZ2-qX-h7t" secondAttribute="trailing" id="hli-Zy-wzr"/>
                                     <constraint firstItem="Pgp-76-RkP" firstAttribute="width" secondItem="yiI-Vm-HbH" secondAttribute="width" id="lZj-12-eGs"/>
+                                    <constraint firstItem="ClI-in-SJ4" firstAttribute="top" secondItem="I2x-8S-7vj" secondAttribute="bottom" constant="16" id="mvk-wC-Lj2"/>
                                     <constraint firstItem="PbO-WH-yPK" firstAttribute="centerX" secondItem="Tjp-xf-jde" secondAttribute="centerX" id="oNT-XU-1eE"/>
                                     <constraint firstItem="cZx-ST-xsi" firstAttribute="height" secondItem="PbO-WH-yPK" secondAttribute="height" id="qJ1-MT-cgo"/>
                                     <constraint firstItem="Tjp-xf-jde" firstAttribute="width" secondItem="3c3-si-yGO" secondAttribute="width" id="qgw-AF-sXQ"/>
                                     <constraint firstItem="myd-d5-O65" firstAttribute="centerY" secondItem="QFw-At-VMN" secondAttribute="centerY" id="r2e-0y-a6q"/>
                                     <constraint firstItem="yiI-Vm-HbH" firstAttribute="top" secondItem="UMV-FG-j0q" secondAttribute="top" constant="16" id="reH-cU-PUV"/>
                                     <constraint firstItem="yiI-Vm-HbH" firstAttribute="leading" secondItem="UMV-FG-j0q" secondAttribute="leading" constant="20" id="s3x-fP-C5a"/>
+                                    <constraint firstItem="I2x-8S-7vj" firstAttribute="centerX" secondItem="C58-jK-2qJ" secondAttribute="centerX" id="s9E-X6-bZY"/>
                                     <constraint firstItem="QFw-At-VMN" firstAttribute="centerX" secondItem="DLt-7V-Ukg" secondAttribute="centerX" id="sNO-U7-71E"/>
                                     <constraint firstItem="cZx-ST-xsi" firstAttribute="width" secondItem="PbO-WH-yPK" secondAttribute="width" id="t1e-by-CoI"/>
-                                    <constraint firstItem="mG8-Fs-MCE" firstAttribute="height" secondItem="cZx-ST-xsi" secondAttribute="height" id="u4P-MC-uWu"/>
                                     <constraint firstItem="MdY-jB-hkL" firstAttribute="top" secondItem="l4F-TM-P6H" secondAttribute="bottom" constant="8" id="uIE-YA-7vk"/>
                                     <constraint firstItem="LSW-DB-ygM" firstAttribute="leading" secondItem="DLt-7V-Ukg" secondAttribute="trailing" id="v2l-f3-5xZ"/>
                                     <constraint firstItem="ClI-in-SJ4" firstAttribute="trailing" secondItem="cZx-ST-xsi" secondAttribute="trailing" id="vXw-2w-K8q"/>
@@ -717,7 +841,6 @@
                     <navigationItem key="navigationItem" title="And" id="MqE-pj-9sH"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="addressTextField" destination="mG8-Fs-MCE" id="0ws-0z-dAl"/>
                         <outlet property="birthdayTextField" destination="MdY-jB-hkL" id="KUv-dw-hEC"/>
                         <outlet property="cityDetailTextField" destination="0lC-zA-gpY" id="b4I-z5-ycr"/>
                         <outlet property="cityTextField" destination="rGT-lF-ju8" id="5By-t2-Sg7"/>
@@ -732,12 +855,17 @@
                         <outlet property="genderFemale" destination="LSW-DB-ygM" id="NPY-cg-crc"/>
                         <outlet property="genderLabel" destination="yiI-Vm-HbH" id="M9s-27-mhP"/>
                         <outlet property="genderMale" destination="DLt-7V-Ukg" id="iXH-eZ-OEh"/>
+                        <outlet property="houseNumberTextField" destination="8aC-2q-mWe" id="gJV-kb-xrK"/>
                         <outlet property="jobTextField" destination="3c3-si-yGO" id="iLd-1l-i4I"/>
                         <outlet property="married" destination="QFw-At-VMN" id="1TL-Gb-ayC"/>
                         <outlet property="martialStateLabel" destination="Pgp-76-RkP" id="wZy-to-n3O"/>
                         <outlet property="nameTextField" destination="l4F-TM-P6H" id="bPg-4F-Hb9"/>
+                        <outlet property="postCodeTextField" destination="6nh-xX-FzU" id="OWW-KT-TlF"/>
                         <outlet property="single" destination="myd-d5-O65" id="QS4-O1-YEU"/>
+                        <outlet property="streetTextField" destination="8AJ-le-Txv" id="SPu-te-hwk"/>
                         <outlet property="telNoTextField" destination="PbO-WH-yPK" id="irC-5g-VIu"/>
+                        <outlet property="townDetailTextField" destination="y8z-73-lkk" id="3ti-rs-uE9"/>
+                        <outlet property="townTextField" destination="mG8-Fs-MCE" id="HfK-08-XfV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -861,7 +989,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xg1-cs-dWW">
-                                        <rect key="frame" x="450" y="-5" width="150" height="50"/>
+                                        <rect key="frame" x="470" y="-5" width="150" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="150" id="9br-qQ-zpf"/>
                                         </constraints>
@@ -873,21 +1001,6 @@
                                         <state key="selected" image="icon_radiobutton_checked"/>
                                         <connections>
                                             <action selector="buttonSelected:" destination="ZOT-PM-yyB" eventType="touchUpInside" id="wJu-Uo-GIs"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ogs-YR-f4C">
-                                        <rect key="frame" x="600" y="-5" width="150" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="150" id="cR7-3t-zLv"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="Beyazeşya" image="icon_radiobutton_unchecked">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <state key="selected" image="icon_radiobutton_checked"/>
-                                        <connections>
-                                            <action selector="buttonSelected:" destination="ZOT-PM-yyB" eventType="touchUpInside" id="Apo-q3-Wdc"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t7t-dg-OuN">
@@ -1077,7 +1190,6 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="KUg-oE-1Vc" firstAttribute="width" secondItem="pM2-wN-beQ" secondAttribute="width" id="1Mn-Iv-IM5"/>
-                                    <constraint firstItem="Ogs-YR-f4C" firstAttribute="width" secondItem="xg1-cs-dWW" secondAttribute="width" id="1Vz-0M-zX2"/>
                                     <constraint firstItem="KUg-oE-1Vc" firstAttribute="top" secondItem="pM2-wN-beQ" secondAttribute="bottom" constant="32" id="1qw-I8-liD"/>
                                     <constraint firstItem="KUg-oE-1Vc" firstAttribute="leading" secondItem="pM2-wN-beQ" secondAttribute="leading" id="2DG-h6-oeo"/>
                                     <constraint firstItem="xg1-cs-dWW" firstAttribute="centerY" secondItem="8ZE-Qo-fLU" secondAttribute="centerY" id="2rh-lS-FDS"/>
@@ -1088,7 +1200,6 @@
                                     <constraint firstItem="ACh-PM-i6Q" firstAttribute="leading" secondItem="Mwn-Y2-qDg" secondAttribute="trailing" id="ABO-LC-6rb"/>
                                     <constraint firstItem="jI3-Wf-tYa" firstAttribute="centerY" secondItem="pM2-wN-beQ" secondAttribute="centerY" id="AZX-fv-29m"/>
                                     <constraint firstItem="763-GQ-pTf" firstAttribute="leading" secondItem="VAb-Fn-bU1" secondAttribute="trailing" id="CDl-tw-YqE"/>
-                                    <constraint firstItem="Ogs-YR-f4C" firstAttribute="centerY" secondItem="xg1-cs-dWW" secondAttribute="centerY" id="CEW-BV-CgT"/>
                                     <constraint firstAttribute="height" constant="400" id="CYW-ax-d6U"/>
                                     <constraint firstItem="pM2-wN-beQ" firstAttribute="trailing" secondItem="S3I-pc-8Xj" secondAttribute="trailing" id="CtA-7k-d5r"/>
                                     <constraint firstItem="S3I-pc-8Xj" firstAttribute="width" secondItem="izl-0Z-0U7" secondAttribute="width" id="EKq-hf-NWd"/>
@@ -1105,11 +1216,9 @@
                                     <constraint firstItem="8ZE-Qo-fLU" firstAttribute="leading" secondItem="izl-0Z-0U7" secondAttribute="trailing" id="RaL-xN-QGu"/>
                                     <constraint firstAttribute="trailing" secondItem="4rx-qG-pIZ" secondAttribute="trailing" constant="36" id="VRm-tC-4dS"/>
                                     <constraint firstItem="dVc-Je-wTL" firstAttribute="centerY" secondItem="t7t-dg-OuN" secondAttribute="centerY" id="W2e-nc-Mc8"/>
-                                    <constraint firstItem="Ogs-YR-f4C" firstAttribute="height" secondItem="xg1-cs-dWW" secondAttribute="height" id="WNN-bB-dwS"/>
                                     <constraint firstItem="81g-1j-fr4" firstAttribute="height" secondItem="dVc-Je-wTL" secondAttribute="height" id="X23-ze-XRw"/>
                                     <constraint firstItem="KUg-oE-1Vc" firstAttribute="trailing" secondItem="pM2-wN-beQ" secondAttribute="trailing" id="YVQ-G7-bJq"/>
                                     <constraint firstItem="Mwn-Y2-qDg" firstAttribute="height" secondItem="81g-1j-fr4" secondAttribute="height" id="Yg8-YP-7qK"/>
-                                    <constraint firstItem="Ogs-YR-f4C" firstAttribute="leading" secondItem="xg1-cs-dWW" secondAttribute="trailing" id="ZMs-GB-uzV"/>
                                     <constraint firstItem="dVc-Je-wTL" firstAttribute="leading" secondItem="t7t-dg-OuN" secondAttribute="trailing" id="aZr-zG-tNa"/>
                                     <constraint firstItem="dKI-Ph-qKo" firstAttribute="height" secondItem="jI3-Wf-tYa" secondAttribute="height" id="b9o-sZ-fiG"/>
                                     <constraint firstItem="dKI-Ph-qKo" firstAttribute="centerY" secondItem="jI3-Wf-tYa" secondAttribute="centerY" id="bN7-u5-tbj"/>
@@ -1118,7 +1227,7 @@
                                     <constraint firstItem="8ZE-Qo-fLU" firstAttribute="height" secondItem="t7t-dg-OuN" secondAttribute="height" id="dkt-oZ-UHZ"/>
                                     <constraint firstItem="dVc-Je-wTL" firstAttribute="height" secondItem="t7t-dg-OuN" secondAttribute="height" id="dyM-hF-C8S"/>
                                     <constraint firstItem="izl-0Z-0U7" firstAttribute="leading" secondItem="G7n-5c-pOC" secondAttribute="leading" constant="20" id="ecm-IZ-rv1"/>
-                                    <constraint firstItem="xg1-cs-dWW" firstAttribute="leading" secondItem="8ZE-Qo-fLU" secondAttribute="trailing" id="eev-fF-My5"/>
+                                    <constraint firstItem="xg1-cs-dWW" firstAttribute="leading" secondItem="8ZE-Qo-fLU" secondAttribute="trailing" constant="20" id="eev-fF-My5"/>
                                     <constraint firstItem="S3I-pc-8Xj" firstAttribute="top" secondItem="izl-0Z-0U7" secondAttribute="bottom" constant="32" id="enX-JP-28V"/>
                                     <constraint firstItem="izl-0Z-0U7" firstAttribute="top" secondItem="G7n-5c-pOC" secondAttribute="top" constant="8" id="g0s-Rr-P06"/>
                                     <constraint firstItem="Mwn-Y2-qDg" firstAttribute="width" secondItem="81g-1j-fr4" secondAttribute="width" id="g3a-mp-esZ"/>
@@ -1188,7 +1297,6 @@
                         <outlet property="payType3" destination="763-GQ-pTf" id="OTL-Lc-u8O"/>
                         <outlet property="project1Button" destination="8ZE-Qo-fLU" id="slB-eZ-AkC"/>
                         <outlet property="project2Button" destination="xg1-cs-dWW" id="Ojp-Xd-gAo"/>
-                        <outlet property="project3Button" destination="Ogs-YR-f4C" id="0sC-GW-F8r"/>
                         <outlet property="purposeType1" destination="jI3-Wf-tYa" id="E8E-0a-Aat"/>
                         <outlet property="purposeType2" destination="dKI-Ph-qKo" id="mUU-XN-4Cg"/>
                     </connections>

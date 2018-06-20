@@ -34,7 +34,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     @IBOutlet weak var countryTextField: HoshiTextField!
     @IBOutlet weak var cityTextField: HoshiTextField!
     @IBOutlet weak var cityDetailTextField: HoshiTextField!
-    @IBOutlet weak var addressTextField: HoshiTextField!
+    @IBOutlet weak var townTextField: HoshiTextField!
+    @IBOutlet weak var townDetailTextField: HoshiTextField!
+    @IBOutlet weak var streetTextField: HoshiTextField!
+    @IBOutlet weak var houseNumberTextField: HoshiTextField!
+    @IBOutlet weak var postCodeTextField: HoshiTextField!
     
     var datePicker = UIDatePicker()
     var picker = UIPickerView()
@@ -76,6 +80,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         emailTextField.text = UserUtils.getEmail()
         countryTextField.text = UserUtils.getCountryName()
         cityTextField.text = UserUtils.getRegionName()
+        cityDetailTextField.text = UserUtils.getCity()
+        townTextField.text = UserUtils.getCityDetail()
+        townDetailTextField.text = UserUtils.getTown()
+        streetTextField.text = UserUtils.getStreet()
+        houseNumberTextField.text = UserUtils.getHouseNo()
+        postCodeTextField.text = UserUtils.getPostCode()
         getCountry()
         if UserUtils.getCountry() != "" {
             getCity(countryCode: UserUtils.getCountry())
@@ -266,7 +276,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         birthdayTextField.inputView = datePicker
         countryTextField.inputView = picker
         cityTextField.inputView = picker
-        cityDetailTextField.inputView = picker
     }
     @IBAction func jobTextFieldAction(_ sender: HoshiTextField) {
         greenTextField(sender: jobTextField)
@@ -364,19 +373,13 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
             greenTextField(sender: cityTextField)
             picker.reloadAllComponents()
             break
-        case cityDetailTextField:
-            picker.tag = 4
-            greenTextField(sender: cityDetailTextField)
-            picker.reloadAllComponents()
-            break
-
         default:
             break
         }
         
     }
     @IBAction func pickerViewDidEnd(_ sender: HoshiTextField) {
-        addressTextField.resignFirstResponder()
+        cityDetailTextField.resignFirstResponder()
         self.setEditing(true, animated: true)
     }
     
@@ -497,30 +500,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch component {
-        case 0:
-            if row == 0 {
-                countryTextField.text = ""
-                UserUtils.setCountry(Country: "")
-                UserUtils.setCountryName(CountryName: "")
-                cityTextField.text = ""
-                UserUtils.setRegion(Region: "")
-                cityDetailTextField.text = ""
-                UserUtils.setCity(City: "")
-                break
-            }
-            countryTextField.text = countryData[row].Value
-            greenTextField(sender: countryTextField)
-            getCity(countryCode: countryData[row].Key)
-            UserUtils.setCountry(Country: countryData[row].Key)
-            UserUtils.setCountryName(CountryName: countryData[row].Value)
-            break
         case 1:
             if row == 0 {
                 cityTextField.text = ""
                 UserUtils.setRegion(Region: "")
                 UserUtils.setRegionName(RegionName: "")
-                cityDetailTextField.text = ""
-                UserUtils.setCity(City: "")
                 break
             }
             cityTextField.text = cityData[row].Value
@@ -533,13 +517,42 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         }
     }
     
-    @IBAction func nextAction(_ sender: UIButton) {
-        // TODO - KALDIR BURAYI
-        if nameTextField.text == "kasim " {
-            let vc = storyboard?.instantiateViewController(withIdentifier: "Step2ViewController") as! Step2ViewController
-            self.navigationController?.pushViewController(vc, animated: true)
+    @IBAction func addressEditingChanged(_ sender: HoshiTextField) {
+        if sender.text != "" {
+            self.greenTextField(sender: sender)
+        }else {
+            sender.borderInactiveColor = UIColor.black
         }
-        
+    }
+    
+    
+    @IBAction func addressDidEnd(_ sender: HoshiTextField) {
+        switch sender {
+        case cityDetailTextField:
+            UserUtils.setCity(City: sender.text ?? "")
+            break
+        case townTextField:
+            UserUtils.setCityDetail(CityDetail: sender.text ?? "")
+            break
+        case townDetailTextField:
+            UserUtils.setTown(Town: sender.text ?? "")
+            break
+        case streetTextField:
+            UserUtils.setStreet(Street: sender.text ?? "")
+            break
+        case houseNumberTextField:
+            UserUtils.setHouseNo(HouseNo: sender.text ?? "")
+            break
+        case postCodeTextField:
+            UserUtils.setPostCode(PostCode: sender.text ?? "")
+            break
+        default:
+            break
+        }
+    }
+    
+    
+    @IBAction func nextAction(_ sender: UIButton) {
         if (nameTextField.text?.isEmpty)! {
             let alert = UIAlertController(title: "Uyarı", message: "Lütfen ad soyad giriniz.", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "Tamam", style: .cancel) {

@@ -44,13 +44,16 @@ public struct ZCRM_MOBILE_FORM_WS_ZcrmSCreateBpWs {
     public var Approval: String //ZCRM_MOBILE_FORM_WS_char1
     public var Country: String //ZCRM_MOBILE_FORM_WS_char3
     public var Region: String //ZCRM_MOBILE_FORM_WS_char3
-    public var City: String //ZCRM_MOBILE_FORM_WS_char12
+    public var City: String //ZCRM_MOBILE_FORM_WS_char40
+    public var County: String //ZCRM_MOBILE_FORM_WS_char40
     public var Street: String //ZCRM_MOBILE_FORM_WS_char60
     public var HouseNo: String //ZCRM_MOBILE_FORM_WS_char10
-    public var DaireTip1: String //ZCRM_MOBILE_FORM_WS_char2
-    public var DaireTip2: String //ZCRM_MOBILE_FORM_WS_char2
-    public var DaireTip3: String //ZCRM_MOBILE_FORM_WS_char2
-    public var DaireTip4: String //ZCRM_MOBILE_FORM_WS_char2
+    public var PostCode: String //ZCRM_MOBILE_FORM_WS_char10
+    public var Township: String //ZCRM_MOBILE_FORM_WS_char40
+    public var DaireTip1: String //ZCRM_MOBILE_FORM_WS_char1
+    public var DaireTip2: String //ZCRM_MOBILE_FORM_WS_char1
+    public var DaireTip3: String //ZCRM_MOBILE_FORM_WS_char1
+    public var DaireTip4: String //ZCRM_MOBILE_FORM_WS_char1
     public var SatinAmac: String //ZCRM_MOBILE_FORM_WS_char2
     public var OdemeTercih: String //ZCRM_MOBILE_FORM_WS_char2
     public var HaberdarOlma: String //ZCRM_MOBILE_FORM_WS_char3
@@ -79,9 +82,9 @@ public struct ZCRM_MOBILE_FORM_WS_ZcrmSSurveyCreateWs {
 }
 
 public struct ZCRM_MOBILE_FORM_WS_ZcrmSSurveyQuestWs {
-    public var QuestionId:String // ZCRM_MOBILE_FORM_WS_string
+    public var QuestionId: String //ZCRM_MOBILE_FORM_WS_string
     public var AnswerId: String //ZCRM_MOBILE_FORM_WS_string
-    public var QuestionText:String //ZCRM_MOBILE_FORM_WS_string
+    public var QuestionText: String //ZCRM_MOBILE_FORM_WS_string
     public var `Type`: String //ZCRM_MOBILE_FORM_WS_string
     public var Answers: ZCRM_MOBILE_FORM_WS_ZcrmTtSurveyAnswWs
 }
@@ -135,10 +138,11 @@ public struct ZCRM_MOBILE_FORM_WS_ZcrmCreateSurveyWs {
 }
 
 public struct ZCRM_MOBILE_FORM_WS_ZcrmCreateSurveyWsResponse {
+    public var EtReturn: ZCRM_MOBILE_FORM_WS_Bapiret2T
 }
 
 public struct ZCRM_MOBILE_FORM_WS_ZcrmGetAttrShWs {
-    public var IvAttribute: String// char30?
+    public var IvAttribute: String //char30?
 }
 
 public struct ZCRM_MOBILE_FORM_WS_ZcrmGetAttrShWsResponse {
@@ -180,8 +184,11 @@ extension ZCRM_MOBILE_FORM_WS_ZcrmSCreateBpWs: ExpressibleByXML, XSDType {
             self.Country = try parseXSDType(xml.children(staticTag: "Country"))
             self.Region = try parseXSDType(xml.children(staticTag: "Region"))
             self.City = try parseXSDType(xml.children(staticTag: "City"))
+            self.County = try parseXSDType(xml.children(staticTag: "County"))
             self.Street = try parseXSDType(xml.children(staticTag: "Street"))
             self.HouseNo = try parseXSDType(xml.children(staticTag: "HouseNo"))
+            self.PostCode = try parseXSDType(xml.children(staticTag: "PostCode"))
+            self.Township = try parseXSDType(xml.children(staticTag: "Township"))
             self.DaireTip1 = try parseXSDType(xml.children(staticTag: "DaireTip1"))
             self.DaireTip2 = try parseXSDType(xml.children(staticTag: "DaireTip2"))
             self.DaireTip3 = try parseXSDType(xml.children(staticTag: "DaireTip3"))
@@ -209,8 +216,11 @@ extension ZCRM_MOBILE_FORM_WS_ZcrmSCreateBpWs: ExpressibleByXML, XSDType {
         ("Country", Country, ""),
         ("Region", Region, ""),
         ("City", City, ""),
+        ("County", County, ""),
         ("Street", Street, ""),
         ("HouseNo", HouseNo, ""),
+        ("PostCode", PostCode, ""),
+        ("Township", Township, ""),
         ("DaireTip1", DaireTip1, ""),
         ("DaireTip2", DaireTip2, ""),
         ("DaireTip3", DaireTip3, ""),
@@ -449,8 +459,15 @@ extension ZCRM_MOBILE_FORM_WS_ZcrmCreateSurveyWs: ExpressibleByXML, XSDType {
 
 extension ZCRM_MOBILE_FORM_WS_ZcrmCreateSurveyWsResponse: ExpressibleByXML, XSDType {
     public init?(xml: Fuzi.XMLElement) {
+        do {
+            self.EtReturn = try parseXSDType(xml.children(staticTag: "EtReturn"))
+        } catch _ {
+            return nil
+        }
     }
-    public var xmlParams: [(String, SOAPParamConvertible?, String)] {return [    ]}
+    public var xmlParams: [(String, SOAPParamConvertible?, String)] {return [
+        ("EtReturn", EtReturn, "tns"),
+        ]}
 }
 
 extension ZCRM_MOBILE_FORM_WS_ZcrmGetAttrShWs: ExpressibleByXML, XSDType {

@@ -69,7 +69,7 @@ class Step3ViewController: UIViewController  {
     }
     
     func getPostData()->ZCRM_MOBILE_FORM_WS_ZcrmSCreateBpWs{
-        return ZCRM_MOBILE_FORM_WS_ZcrmSCreateBpWs.init(NameFirst: UserUtils.getNameFirst(), NameLast: UserUtils.getNameLast(), Birthdate: UserUtils.getFormatBirthdate(), Sex: UserUtils.getSex(), MaritalStat: UserUtils.getMaritalStat(), MobileNo: formatPhoneNumber(number: UserUtils.getMobileNo()), Email: UserUtils.getEmail(), Job: UserUtils.getJob(), Education: UserUtils.getEducation(), Company: UserUtils.getCompany(), Project: UserUtils.getProject(), Approval: UserUtils.getApproval(), Country: UserUtils.getCountry(), Region: UserUtils.getRegion(), City: UserUtils.getCity(), Street: UserUtils.getStreet(), HouseNo: UserUtils.getHouseNo(), DaireTip1: UserUtils.getApartmentType1(), DaireTip2: UserUtils.getApartmentType2(), DaireTip3: UserUtils.getApartmentType3(), DaireTip4: UserUtils.getApartmentType4(), SatinAmac: UserUtils.getPurposeType(), OdemeTercih: UserUtils.getPayType(), HaberdarOlma: UserUtils.getInformedType())
+        return ZCRM_MOBILE_FORM_WS_ZcrmSCreateBpWs.init(NameFirst: UserUtils.getNameFirst(), NameLast: UserUtils.getNameLast(), Birthdate: UserUtils.getFormatBirthdate(), Sex: UserUtils.getSex(), MaritalStat: UserUtils.getMaritalStat(), MobileNo: formatPhoneNumber(number: UserUtils.getMobileNo()), Email: UserUtils.getEmail(), Job: UserUtils.getJob(), Education: UserUtils.getEducation(), Company: UserUtils.getCompany(), Project: UserUtils.getProject(), Approval: UserUtils.getApproval(), Country: UserUtils.getCountry(), Region: UserUtils.getRegion(), City: UserUtils.getCityDetail(), County: UserUtils.getCity(), Street: UserUtils.getStreet(), HouseNo: UserUtils.getHouseNo(), PostCode: UserUtils.getPostCode(), Township: UserUtils.getTown(), DaireTip1: UserUtils.getApartmentType1(), DaireTip2: UserUtils.getApartmentType2(), DaireTip3: UserUtils.getApartmentType3(), DaireTip4: UserUtils.getApartmentType4(), SatinAmac: UserUtils.getPurposeType(), OdemeTercih: UserUtils.getPayType(), HaberdarOlma: UserUtils.getInformedType())
     }
     
     func formatPhoneNumber(number: String) -> String{
@@ -117,21 +117,6 @@ class Step3ViewController: UIViewController  {
         }
     }
     
-    func callFormService(){
-        PKHUD.sharedHUD.show()
-        let client = ZCRM_MOBILE_FORM_WS(endpoint: "http://SSAGYCRMD01.anadolu.corp:8000/sap/bc/srt/rfc/sap/zcrm_mobile_form_ws/200/zcrm_mobile_form_ws/zcrm_mobile_form_ws")
-        let request = client.request(ZCRM_MOBILE_FORM_WS_ZcrmCreateMobFormWs(IsData: getPostData()))
-        print(getPostData())
-        request.onComplete{
-            (r) in
-            print(r.value?.EtReturn.item[0].Type)
-            PKHUD.sharedHUD.hide()
-            UserUtils.resetUser()
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "startPage")
-            self.present(vc!, animated: true, completion: nil)
-        }
-    }
-    
     func callFormServiceToSurvey(){
         PKHUD.sharedHUD.show()
         let client = ZCRM_MOBILE_FORM_WS(endpoint: "http://SSAGYCRMD01.anadolu.corp:8000/sap/bc/srt/rfc/sap/zcrm_mobile_form_ws/200/zcrm_mobile_form_ws/zcrm_mobile_form_ws")
@@ -156,13 +141,9 @@ class Step3ViewController: UIViewController  {
         }else {
             
             
-            let alert = UIAlertController(title: "Teşekkürler", message: "Katıldığınız için teşekkür ederiz. Ankete katılmanızı rica ederiz.", preferredStyle: .alert)
-            let destructiveAction = UIAlertAction(title: "Bitir", style: .default){
-                (result : UIAlertAction) -> Void in
-                PKHUD.sharedHUD.show()
-                self.callFormService()
-            }
-            let okAction = UIAlertAction(title: "Ankete Katıl", style: .default) {
+            let alert = UIAlertController(title: "Teşekkürler", message: "Katıldığınız için teşekkür ederiz. Göndermek için devam ediniz.", preferredStyle: .alert)
+            let destructiveAction = UIAlertAction(title: "Vazgeç", style: .default)
+            let okAction = UIAlertAction(title: "Devam Et", style: .default) {
                 (result : UIAlertAction) -> Void in
                 self.callFormServiceToSurvey()
             }
