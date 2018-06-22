@@ -332,6 +332,8 @@ class UserUtils {
     
     static func resetUser(){
         SurveyTableViewController.selectedChoices = []
+        ViewController.firstTime = true
+        ViewController.deleteTelNo = false
         
         UserUtils.setNameFirst(NameFirst: "")
         UserUtils.setNameLast(NameLast: "")

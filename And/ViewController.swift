@@ -42,8 +42,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     
     var datePicker = UIDatePicker()
     var picker = UIPickerView()
-    var deleteTelNo = false
-    
+    static var deleteTelNo = false
+    static var firstTime = true
     var dismissProblem = true
     
     var countryData : [ZCRM_MOBILE_FORM_WS_BspWdDropdownLine] = []
@@ -181,6 +181,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
                     UserUtils.setRegion(Region: self.cityData[1].Key)
                     UserUtils.setRegionName(RegionName: self.cityData[1].Value)
                     self.cityTextField.text = self.cityData[1].Value
+                    self.greenTextField(sender: self.cityTextField)
+                }else {
+                    self.cityTextField.text = ""
+                    UserUtils.setRegion(Region: "")
+                    UserUtils.setRegionName(RegionName: "")
                 }
 
             }
@@ -336,16 +341,17 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     }
     
     @IBAction func pickerViewDidBegin(_ sender: HoshiTextField) {
-        
-        if UserUtils.getCountry() == "" && !countryData.isEmpty {
-            picker.selectRow(1, inComponent: 0, animated: false)
-            UserUtils.setCountry(Country: countryData[1].Key)
-            UserUtils.setCountryName(CountryName: countryData[1].Value)
-            self.countryTextField.text = countryData[1].Value
-            getCity(countryCode: countryData[1].Key)
+        if sender == countryTextField || sender == cityTextField {
+            if UserUtils.getCountry() == "" && !countryData.isEmpty && ViewController.firstTime {
+                ViewController.firstTime = false
+                picker.selectRow(1, inComponent: 0, animated: false)
+                UserUtils.setCountry(Country: countryData[1].Key)
+                UserUtils.setCountryName(CountryName: countryData[1].Value)
+                self.countryTextField.text = countryData[1].Value
+                greenTextField(sender: self.countryTextField)
+                getCity(countryCode: countryData[1].Key)
+            }
         }
-        
-        
         if countryData.isEmpty && sender != telNoTextField {
             let alert = UIAlertController(title: "Hata", message: "Sunucuya bağlanamadı.", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "Tamam", style: .cancel)
@@ -389,20 +395,23 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
             switch sender.text?.count {
             case 0:
                 sender.text = "(5"
-                deleteTelNo = false
+                ViewController.deleteTelNo = false
                 break
             case 1:
                 sender.text = "(5"
-                deleteTelNo = false
+                ViewController.deleteTelNo = false
                 break
             case 2:
-                deleteTelNo = false
+                ViewController.deleteTelNo = false
                 redTextField(sender: sender)
                 break
             case 4:
-                if deleteTelNo == false {
+                if ViewController.deleteTelNo == false {
                     sender.text?.append(")")
-                    deleteTelNo = true
+                    ViewController.deleteTelNo = true
+                }else {
+                    sender.text?.removeLast()
+                    ViewController.deleteTelNo = false
                 }
                 break
             case 12:
@@ -500,6 +509,20 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch component {
+        case 0:
+            if row == 0 && !ViewController.firstTime {
+                countryTextField.text = ""
+                UserUtils.setCountry(Country: "")
+                UserUtils.setCountryName(CountryName: "")
+                ViewController.firstTime = true
+                break
+            }else {
+                getCity(countryCode: countryData[row].Key)
+                countryTextField.text = countryData[row].Value
+                greenTextField(sender: countryTextField)
+                UserUtils.setCountry(Country: countryData[row].Key)
+                UserUtils.setCountryName(CountryName: countryData[row].Value)
+            }
         case 1:
             if row == 0 {
                 cityTextField.text = ""

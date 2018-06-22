@@ -74,7 +74,9 @@ class Step3ViewController: UIViewController  {
     
     func formatPhoneNumber(number: String) -> String{
         var phoneNumber = number
-        phoneNumber.remove(at: phoneNumber.index(of: ")")!)
+        if let index = phoneNumber.index(of: ")") {
+            phoneNumber.remove(at: index)
+        }
         phoneNumber.remove(at: phoneNumber.startIndex)
         phoneNumber.insert("0", at: phoneNumber.startIndex)
         return phoneNumber
