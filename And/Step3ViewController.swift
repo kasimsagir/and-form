@@ -10,66 +10,51 @@ import Foundation
 import UIKit
 import WSDL2Swift
 import PKHUD
+import TextFieldEffects
 
 class Step3ViewController: UIViewController  {
-    @IBOutlet weak var button1: UIButton!
-    @IBOutlet weak var button2: UIButton!
-    @IBOutlet weak var button3: UIButton!
-    @IBOutlet weak var button4: UIButton!
-    @IBOutlet weak var button5: UIButton!
-    @IBOutlet weak var button6: UIButton!
-    @IBOutlet weak var button7: UIButton!
-    @IBOutlet weak var button8: UIButton!
-    @IBOutlet weak var button9: UIButton!
-    @IBOutlet weak var button10: UIButton!
+    
+    @IBOutlet weak var informedTypeTextField: HoshiTextField!
     @IBOutlet weak var termButton: UIButton!
+    
+    var dismissProblem = true
     
     override func viewDidLoad() {
         reloadDataFromUserDefaults()
-        
         let myMutableString = NSMutableAttributedString(string: (termButton.titleLabel?.text)!, attributes: nil)
         myMutableString.addAttribute(.foregroundColor, value: UIColor.blue, range: NSRange(location:33,length:8))
         termButton.titleLabel?.attributedText = myMutableString
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    @IBAction func informedTypeTextFieldAction(_ sender: HoshiTextField) {
+        if dismissProblem { // Sayfaya gidip geri gelince yine bu actiona giriyordu onu engellemek için dismissProblem değişkenini kulandım.
+            dismissProblem = false
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "InformedTypeTableViewController") as! InformedTypeTableViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+        }else {
+            dismissProblem = true
+            view.endEditing(true)
+        }
     }
     
     func reloadDataFromUserDefaults(){
+        informedTypeTextField.text = UserUtils.getInformedType()
+        if UserUtils.getInformedTypeDetail() != "" {
+            informedTypeTextField.text?.append(" - "+UserUtils.getInformedTypeDetail())
+        }
         if UserUtils.getApproval() == "X" {
             termButton.isSelected = true
         }else {
             termButton.isSelected = false
         }
-        
-        switch UserUtils.getInformedType() {
-        case "12":
-            button1.isSelected = true
-        case "2":
-            button2.isSelected = true
-        case "6":
-            button3.isSelected = true
-        case "1":
-            button4.isSelected = true
-        case "4":
-            button5.isSelected = true
-        case "11":
-            button6.isSelected = true
-        case "7":
-            button7.isSelected = true
-        case "5":
-            button8.isSelected = true
-        case "8":
-            button9.isSelected = true
-        case "9":
-            button10.isSelected = true
-            
-        default:
-            Utils.deselectButtons(buttons: [button1,button2,button3,button4,button5,button6,button7,button8,button9,button10])
-            break
-        }
     }
     
     func getPostData()->ZCRM_MOBILE_FORM_WS_ZcrmSCreateBpWs{
-        return ZCRM_MOBILE_FORM_WS_ZcrmSCreateBpWs.init(NameFirst: UserUtils.getNameFirst(), NameLast: UserUtils.getNameLast(), Birthdate: UserUtils.getFormatBirthdate(), Sex: UserUtils.getSex(), MaritalStat: UserUtils.getMaritalStat(), MobileNo: formatPhoneNumber(number: UserUtils.getMobileNo()), Email: UserUtils.getEmail(), Job: UserUtils.getJob(), Education: UserUtils.getEducation(), Company: UserUtils.getCompany(), Project: UserUtils.getProject(), Approval: UserUtils.getApproval(), Country: UserUtils.getCountry(), Region: UserUtils.getRegion(), City: UserUtils.getCityDetail(), County: UserUtils.getCity(), Street: UserUtils.getStreet(), HouseNo: UserUtils.getHouseNo(), PostCode: UserUtils.getPostCode(), Township: UserUtils.getTown(), DaireTip1: UserUtils.getApartmentType1(), DaireTip2: UserUtils.getApartmentType2(), DaireTip3: UserUtils.getApartmentType3(), DaireTip4: UserUtils.getApartmentType4(), SatinAmac: UserUtils.getPurposeType(), OdemeTercih: UserUtils.getPayType(), HaberdarOlma: UserUtils.getInformedType())
+        return ZCRM_MOBILE_FORM_WS_ZcrmSCreateBpWs.init(NameFirst: UserUtils.getNameFirst(), NameLast: UserUtils.getNameLast(), Birthdate: UserUtils.getFormatBirthdate(), Sex: UserUtils.getSex(), MaritalStat: UserUtils.getMaritalStat(), MobileNo: formatPhoneNumber(number: UserUtils.getMobileNo()), Email: UserUtils.getEmail(), Job: UserUtils.getJob(), Education: UserUtils.getEducation(), Company: UserUtils.getCompany(), Project: UserUtils.getProject(), Approval: UserUtils.getApproval(), Country: UserUtils.getCountry(), Region: UserUtils.getRegion(), City: UserUtils.getCityDetail(), County: UserUtils.getCity(), Street: UserUtils.getStreet(), HouseNo: UserUtils.getHouseNo(), PostCode: UserUtils.getPostCode(), Township: UserUtils.getTown(), DaireTip1: UserUtils.getApartmentType1(), DaireTip2: UserUtils.getApartmentType2(), DaireTip3: UserUtils.getApartmentType3(), DaireTip4: UserUtils.getApartmentType4(), SatinAmac: UserUtils.getPurposeType(), OdemeTercih: UserUtils.getPayType(), HaberdarOlma: "")
     }
     
     func formatPhoneNumber(number: String) -> String{
@@ -80,12 +65,6 @@ class Step3ViewController: UIViewController  {
         phoneNumber.remove(at: phoneNumber.startIndex)
         phoneNumber.insert("0", at: phoneNumber.startIndex)
         return phoneNumber
-    }
-    
-    @IBAction func buttonAction(_ sender: UIButton) {
-        Utils.deselectButtons(buttons: [button1,button2,button3,button4,button5,button6,button7,button8,button9,button10])
-        sender.isSelected = true
-        UserUtils.setInformedType(InformedType: String(sender.tag))
     }
     
     @IBAction func dismissView(_ sender: UIButton) {
@@ -109,6 +88,7 @@ class Step3ViewController: UIViewController  {
         alertView.addAction(destructiveAction)
         self.present(alertView, animated: true, completion: nil)
     }
+    
     @IBAction func termAction(_ sender: UIButton) {
         if sender.isSelected {
             sender.isSelected = false

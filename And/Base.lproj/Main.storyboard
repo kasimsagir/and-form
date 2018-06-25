@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Meslek Adı Giriniz" id="bPc-sD-2HE">
+                        <searchBar key="tableHeaderView" contentMode="redraw" text="" placeholder="Meslek Adı Giriniz" id="bPc-sD-2HE">
                             <rect key="frame" x="0.0" y="0.0" width="768" height="56"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
@@ -53,7 +53,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yvY-bR-uTH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1246" y="-694"/>
+            <point key="canvasLocation" x="1238" y="-568"/>
         </scene>
         <!--And-->
         <scene sceneID="tne-QT-ifu">
@@ -156,7 +156,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vR2-3O-xfL">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <rect key="frame" x="20" y="56" width="728" height="1"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="R0r-gY-8If"/>
@@ -233,7 +233,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" alpha="0.40000000596046448" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Csj-dN-DfJ">
-                                        <rect key="frame" x="264" y="336" width="240" height="128"/>
+                                        <rect key="frame" x="20" y="112" width="728" height="1"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eğitim:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="46D-5n-dYu">
@@ -246,7 +246,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" alpha="0.40000000596046448" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LKg-N2-OiJ">
-                                        <rect key="frame" x="264" y="336" width="240" height="128"/>
+                                        <rect key="frame" x="20" y="203" width="728" height="1"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3pu-V9-oMb">
@@ -1273,7 +1273,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0pH-2H-7BH">
-                                <rect key="frame" x="58" y="573" width="135.5" height="70"/>
+                                <rect key="frame" x="36" y="573" width="135.5" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="rOk-pM-8JM"/>
                                 </constraints>
@@ -1292,7 +1292,7 @@
                             <constraint firstItem="yBl-9Z-Loc" firstAttribute="leading" secondItem="1bv-wk-yxE" secondAttribute="leading" id="6W3-2P-piH"/>
                             <constraint firstItem="G7n-5c-pOC" firstAttribute="centerX" secondItem="Ybw-NZ-PiR" secondAttribute="centerX" id="7Du-dT-XDz"/>
                             <constraint firstItem="yBl-9Z-Loc" firstAttribute="top" secondItem="1bv-wk-yxE" secondAttribute="top" id="9oa-fH-DFZ"/>
-                            <constraint firstItem="0pH-2H-7BH" firstAttribute="leading" secondItem="1bv-wk-yxE" secondAttribute="leading" constant="58" id="Ahx-Nd-Ixw"/>
+                            <constraint firstItem="0pH-2H-7BH" firstAttribute="leading" secondItem="1bv-wk-yxE" secondAttribute="leading" constant="36" id="Ahx-Nd-Ixw"/>
                             <constraint firstItem="vNR-uy-1n4" firstAttribute="centerX" secondItem="1bv-wk-yxE" secondAttribute="centerX" id="EEf-bY-g6x"/>
                             <constraint firstItem="0pH-2H-7BH" firstAttribute="width" secondItem="0pH-2H-7BH" secondAttribute="height" multiplier="240:124" id="G4Y-2l-fWa"/>
                             <constraint firstItem="0pH-2H-7BH" firstAttribute="centerY" secondItem="4rx-qG-pIZ" secondAttribute="centerY" id="OkY-sJ-OqB"/>
@@ -1329,7 +1329,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c2X-j8-P3g" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2404.1015625" y="116.40625"/>
+            <point key="canvasLocation" x="2061" y="115"/>
         </scene>
         <!--And-->
         <scene sceneID="HnW-ag-vSt">
@@ -1423,137 +1423,37 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lp4-R7-qu5">
                                 <rect key="frame" x="0.0" y="264" width="768" height="400"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Haberdar Olma Şekliniz:*" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6n-fA-VS0">
-                                        <rect key="frame" x="16" y="16" width="225" height="24"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Haberdar Olma Şekli*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CqN-q4-iqw" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                        <rect key="frame" x="36" y="16" width="696" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="225" id="3HD-X2-uJr"/>
+                                            <constraint firstAttribute="height" constant="50" id="aof-9P-SMh"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                         <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hax-pP-wcy">
-                                        <rect key="frame" x="251" y="3" width="130" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="130" id="ecg-4C-sqG"/>
-                                            <constraint firstAttribute="height" constant="50" id="kgk-cC-2UW"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="-7" maxY="0.0"/>
-                                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="Referans" image="icon_radiobutton_unchecked">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <state key="selected" image="icon_radiobutton_checked"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="organization-title"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                <color key="value" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="buttonAction:" destination="BFP-dN-Cve" eventType="touchUpInside" id="xgS-CW-msA"/>
+                                            <action selector="informedTypeTextFieldAction:" destination="BFP-dN-Cve" eventType="editingDidBegin" id="BTz-jX-Ygt"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="Awm-mj-gUi"/>
                                         </connections>
-                                    </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q4Z-Il-1nI">
-                                        <rect key="frame" x="381" y="3" width="130" height="50"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <inset key="contentEdgeInsets" minX="-45" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="TV" image="icon_radiobutton_unchecked">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <state key="selected" image="icon_radiobutton_checked"/>
-                                        <connections>
-                                            <action selector="buttonAction:" destination="BFP-dN-Cve" eventType="touchUpInside" id="7ZQ-Rv-sNZ"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ADN-un-9Cb">
-                                        <rect key="frame" x="511" y="3" width="130" height="50"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <inset key="contentEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="İnternet" image="icon_radiobutton_unchecked">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <state key="selected" image="icon_radiobutton_checked"/>
-                                        <connections>
-                                            <action selector="buttonAction:" destination="BFP-dN-Cve" eventType="touchUpInside" id="29t-OH-Z6y"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fy2-NY-DWM">
-                                        <rect key="frame" x="641" y="3" width="130" height="50"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <inset key="contentEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="Gazete" image="icon_radiobutton_unchecked">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <state key="selected" image="icon_radiobutton_checked"/>
-                                        <connections>
-                                            <action selector="buttonAction:" destination="BFP-dN-Cve" eventType="touchUpInside" id="chl-A3-Cqk"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lz2-wh-RDC">
-                                        <rect key="frame" x="251" y="61" width="130" height="50"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <inset key="contentEdgeInsets" minX="-22" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="Dergi" image="icon_radiobutton_unchecked">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <state key="selected" image="icon_radiobutton_checked"/>
-                                        <connections>
-                                            <action selector="buttonAction:" destination="BFP-dN-Cve" eventType="touchUpInside" id="AO4-u4-y5S"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LUC-cm-Gbi">
-                                        <rect key="frame" x="511" y="61" width="130" height="50"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="Açık Hava" image="icon_radiobutton_unchecked">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <state key="selected" image="icon_radiobutton_checked"/>
-                                        <connections>
-                                            <action selector="buttonAction:" destination="BFP-dN-Cve" eventType="touchUpInside" id="gWl-Uw-jDd"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GaY-mX-Yt9">
-                                        <rect key="frame" x="641" y="61" width="130" height="50"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <inset key="contentEdgeInsets" minX="-17" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="Radyo" image="icon_radiobutton_unchecked">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <state key="selected" image="icon_radiobutton_checked"/>
-                                        <connections>
-                                            <action selector="buttonAction:" destination="BFP-dN-Cve" eventType="touchUpInside" id="75q-me-F5S"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="XWS-s3-lu1">
-                                        <rect key="frame" x="251" y="119" width="130" height="50"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="Yoldan Geçerken" image="icon_radiobutton_unchecked">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <state key="selected" image="icon_radiobutton_checked"/>
-                                        <connections>
-                                            <action selector="buttonAction:" destination="BFP-dN-Cve" eventType="touchUpInside" id="7AM-3p-qVE"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AE6-FR-l5M">
-                                        <rect key="frame" x="381" y="119" width="130" height="50"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <inset key="contentEdgeInsets" minX="-23" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="Diğer" image="icon_radiobutton_unchecked">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <state key="selected" image="icon_radiobutton_checked"/>
-                                        <connections>
-                                            <action selector="buttonAction:" destination="BFP-dN-Cve" eventType="touchUpInside" id="dIc-vk-mHP"/>
-                                        </connections>
-                                    </button>
+                                    </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uxb-dE-ZAy">
-                                        <rect key="frame" x="592.5" y="299.5" width="143.5" height="70"/>
+                                        <rect key="frame" x="592.5" y="196.5" width="143.5" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="EV1-NU-zrg"/>
                                             <constraint firstAttribute="width" secondItem="uxb-dE-ZAy" secondAttribute="height" multiplier="254:124" id="b9N-cN-Boe"/>
@@ -1567,7 +1467,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZIf-vf-ekD">
-                                        <rect key="frame" x="58" y="299.5" width="135.5" height="70"/>
+                                        <rect key="frame" x="36" y="196.5" width="135.5" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="Lbq-pG-pZ5"/>
                                             <constraint firstAttribute="width" secondItem="ZIf-vf-ekD" secondAttribute="height" multiplier="240:124" id="kXm-Jx-o0A"/>
@@ -1581,7 +1481,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x3z-9l-5Ic">
-                                        <rect key="frame" x="251" y="201" width="402" height="50"/>
+                                        <rect key="frame" x="183" y="98" width="402" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="402" id="5B6-S8-HY8"/>
                                             <constraint firstAttribute="height" constant="50" id="kTf-mf-4QN"/>
@@ -1597,8 +1497,8 @@
                                             <action selector="termAction:" destination="BFP-dN-Cve" eventType="touchUpInside" id="o3V-Me-dQb"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s9i-eE-RfU">
-                                        <rect key="frame" x="553" y="201" width="120" height="50"/>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s9i-eE-RfU">
+                                        <rect key="frame" x="563" y="98" width="120" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="Oc9-6h-2yW"/>
                                         </constraints>
@@ -1606,74 +1506,21 @@
                                             <action selector="openTermsAction:" destination="BFP-dN-Cve" eventType="touchUpInside" id="aXD-qS-jKT"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Jw-Mk-VMS">
-                                        <rect key="frame" x="381" y="61" width="130" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="130" id="xgw-BB-zvy"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <inset key="contentEdgeInsets" minX="-7" minY="0.0" maxX="-7" maxY="0.0"/>
-                                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="E-Posta" image="icon_radiobutton_unchecked">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <state key="selected" image="icon_radiobutton_checked"/>
-                                        <connections>
-                                            <action selector="buttonAction:" destination="BFP-dN-Cve" eventType="touchUpInside" id="bdQ-8u-KpJ"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="ADN-un-9Cb" firstAttribute="leading" secondItem="q4Z-Il-1nI" secondAttribute="trailing" id="1x4-R0-7ob"/>
-                                    <constraint firstItem="q4Z-Il-1nI" firstAttribute="height" secondItem="ADN-un-9Cb" secondAttribute="height" id="2Zc-0Y-Gex"/>
-                                    <constraint firstItem="XWS-s3-lu1" firstAttribute="leading" secondItem="lz2-wh-RDC" secondAttribute="leading" id="4vn-Zm-MA5"/>
-                                    <constraint firstItem="ADN-un-9Cb" firstAttribute="width" secondItem="q4Z-Il-1nI" secondAttribute="width" id="6it-AH-Afp"/>
-                                    <constraint firstItem="fy2-NY-DWM" firstAttribute="leading" secondItem="ADN-un-9Cb" secondAttribute="trailing" id="8i7-Yd-fn0"/>
-                                    <constraint firstItem="hax-pP-wcy" firstAttribute="height" secondItem="q4Z-Il-1nI" secondAttribute="height" id="8lA-F9-RZv"/>
-                                    <constraint firstItem="fy2-NY-DWM" firstAttribute="width" secondItem="ADN-un-9Cb" secondAttribute="width" id="Blc-QC-OXv"/>
-                                    <constraint firstItem="GaY-mX-Yt9" firstAttribute="height" secondItem="LUC-cm-Gbi" secondAttribute="height" id="CbH-kd-fID"/>
-                                    <constraint firstItem="XWS-s3-lu1" firstAttribute="width" secondItem="GaY-mX-Yt9" secondAttribute="width" id="FNI-We-QVm"/>
-                                    <constraint firstItem="s9i-eE-RfU" firstAttribute="trailing" secondItem="x3z-9l-5Ic" secondAttribute="trailing" constant="20" id="FTa-zC-bWM"/>
-                                    <constraint firstItem="x3z-9l-5Ic" firstAttribute="top" secondItem="XWS-s3-lu1" secondAttribute="bottom" constant="32" id="Ha4-cT-8MZ"/>
-                                    <constraint firstItem="XWS-s3-lu1" firstAttribute="top" secondItem="lz2-wh-RDC" secondAttribute="bottom" constant="8" id="IxG-lm-BDt"/>
-                                    <constraint firstItem="9Jw-Mk-VMS" firstAttribute="leading" secondItem="lz2-wh-RDC" secondAttribute="trailing" id="L8t-r3-XYJ"/>
+                                    <constraint firstItem="x3z-9l-5Ic" firstAttribute="centerX" secondItem="Lp4-R7-qu5" secondAttribute="centerX" id="EWn-HH-BAk"/>
                                     <constraint firstAttribute="trailing" secondItem="uxb-dE-ZAy" secondAttribute="trailing" constant="32" id="LJa-M0-EJ7"/>
+                                    <constraint firstItem="CqN-q4-iqw" firstAttribute="leading" secondItem="Lp4-R7-qu5" secondAttribute="leading" constant="36" id="Lgw-P8-qdB"/>
                                     <constraint firstItem="s9i-eE-RfU" firstAttribute="centerY" secondItem="x3z-9l-5Ic" secondAttribute="centerY" id="Pq2-th-Jdb"/>
-                                    <constraint firstItem="9Jw-Mk-VMS" firstAttribute="height" secondItem="hax-pP-wcy" secondAttribute="height" id="QFQ-4v-8tZ"/>
-                                    <constraint firstItem="XWS-s3-lu1" firstAttribute="height" secondItem="GaY-mX-Yt9" secondAttribute="height" id="Sxx-Sp-em9"/>
-                                    <constraint firstItem="q4Z-Il-1nI" firstAttribute="width" secondItem="hax-pP-wcy" secondAttribute="width" id="UZ4-hV-6Pn"/>
-                                    <constraint firstItem="lz2-wh-RDC" firstAttribute="leading" secondItem="hax-pP-wcy" secondAttribute="leading" id="UiC-iM-Fgx"/>
                                     <constraint firstAttribute="height" constant="400" id="UlH-mc-tbH"/>
-                                    <constraint firstItem="LUC-cm-Gbi" firstAttribute="height" secondItem="9Jw-Mk-VMS" secondAttribute="height" id="WgR-B6-ebs"/>
+                                    <constraint firstItem="x3z-9l-5Ic" firstAttribute="top" secondItem="CqN-q4-iqw" secondAttribute="bottom" constant="32" id="XEc-GP-oDP"/>
                                     <constraint firstItem="ZIf-vf-ekD" firstAttribute="centerY" secondItem="uxb-dE-ZAy" secondAttribute="centerY" id="XJD-5e-Tb5"/>
-                                    <constraint firstItem="x6n-fA-VS0" firstAttribute="top" secondItem="Lp4-R7-qu5" secondAttribute="top" constant="16" id="Xuv-ro-sty"/>
-                                    <constraint firstItem="ZIf-vf-ekD" firstAttribute="leading" secondItem="Lp4-R7-qu5" secondAttribute="leading" constant="58" id="Y3c-cf-Ext"/>
-                                    <constraint firstItem="lz2-wh-RDC" firstAttribute="top" secondItem="hax-pP-wcy" secondAttribute="bottom" constant="8" id="ZmO-SR-lEW"/>
-                                    <constraint firstItem="x6n-fA-VS0" firstAttribute="leading" secondItem="Lp4-R7-qu5" secondAttribute="leading" constant="16" id="Zzh-Vb-H57"/>
-                                    <constraint firstItem="ADN-un-9Cb" firstAttribute="height" secondItem="fy2-NY-DWM" secondAttribute="height" id="Zzs-cV-wKt"/>
-                                    <constraint firstItem="GaY-mX-Yt9" firstAttribute="centerY" secondItem="LUC-cm-Gbi" secondAttribute="centerY" id="c1a-nj-qXV"/>
-                                    <constraint firstItem="LUC-cm-Gbi" firstAttribute="centerY" secondItem="9Jw-Mk-VMS" secondAttribute="centerY" id="c1s-1k-0w0"/>
-                                    <constraint firstItem="hax-pP-wcy" firstAttribute="leading" secondItem="x6n-fA-VS0" secondAttribute="trailing" constant="10" id="cYd-Tb-X2z"/>
-                                    <constraint firstItem="GaY-mX-Yt9" firstAttribute="width" secondItem="LUC-cm-Gbi" secondAttribute="width" id="dCN-aj-q5N"/>
-                                    <constraint firstItem="q4Z-Il-1nI" firstAttribute="centerY" secondItem="hax-pP-wcy" secondAttribute="centerY" id="dsf-Qz-rR4"/>
-                                    <constraint firstItem="x3z-9l-5Ic" firstAttribute="leading" secondItem="hax-pP-wcy" secondAttribute="leading" id="eKV-fg-GDm"/>
-                                    <constraint firstItem="AE6-FR-l5M" firstAttribute="leading" secondItem="XWS-s3-lu1" secondAttribute="trailing" id="fhp-Ts-YMU"/>
-                                    <constraint firstItem="LUC-cm-Gbi" firstAttribute="width" secondItem="9Jw-Mk-VMS" secondAttribute="width" id="gup-BS-cTz"/>
+                                    <constraint firstItem="ZIf-vf-ekD" firstAttribute="leading" secondItem="Lp4-R7-qu5" secondAttribute="leading" constant="36" id="Y3c-cf-Ext"/>
+                                    <constraint firstAttribute="trailing" secondItem="CqN-q4-iqw" secondAttribute="trailing" constant="36" id="fwi-TW-Ccl"/>
                                     <constraint firstItem="ZIf-vf-ekD" firstAttribute="top" secondItem="x3z-9l-5Ic" secondAttribute="bottom" constant="48.5" id="jJq-tC-ZKW"/>
-                                    <constraint firstItem="ADN-un-9Cb" firstAttribute="centerY" secondItem="q4Z-Il-1nI" secondAttribute="centerY" id="l9S-CP-uFs"/>
-                                    <constraint firstItem="9Jw-Mk-VMS" firstAttribute="top" secondItem="hax-pP-wcy" secondAttribute="bottom" constant="8" id="mA9-xu-VzH"/>
-                                    <constraint firstItem="GaY-mX-Yt9" firstAttribute="leading" secondItem="LUC-cm-Gbi" secondAttribute="trailing" id="mVJ-Nn-Sz9"/>
-                                    <constraint firstItem="lz2-wh-RDC" firstAttribute="width" secondItem="fy2-NY-DWM" secondAttribute="width" id="mqd-rZ-3W1"/>
-                                    <constraint firstItem="AE6-FR-l5M" firstAttribute="height" secondItem="XWS-s3-lu1" secondAttribute="height" id="oLa-dh-u3a"/>
                                     <constraint firstItem="s9i-eE-RfU" firstAttribute="height" secondItem="x3z-9l-5Ic" secondAttribute="height" id="pbV-bm-eCE"/>
-                                    <constraint firstItem="LUC-cm-Gbi" firstAttribute="leading" secondItem="9Jw-Mk-VMS" secondAttribute="trailing" id="qh4-5j-KT2"/>
-                                    <constraint firstItem="AE6-FR-l5M" firstAttribute="centerY" secondItem="XWS-s3-lu1" secondAttribute="centerY" id="qmh-KK-xgr"/>
-                                    <constraint firstItem="AE6-FR-l5M" firstAttribute="width" secondItem="XWS-s3-lu1" secondAttribute="width" id="rLv-JS-Poe"/>
-                                    <constraint firstItem="fy2-NY-DWM" firstAttribute="centerY" secondItem="ADN-un-9Cb" secondAttribute="centerY" id="utd-CR-ZP6"/>
-                                    <constraint firstItem="hax-pP-wcy" firstAttribute="centerY" secondItem="x6n-fA-VS0" secondAttribute="centerY" id="xmi-du-dDq"/>
-                                    <constraint firstItem="lz2-wh-RDC" firstAttribute="height" secondItem="fy2-NY-DWM" secondAttribute="height" id="z9Q-XL-99J"/>
-                                    <constraint firstItem="q4Z-Il-1nI" firstAttribute="leading" secondItem="hax-pP-wcy" secondAttribute="trailing" id="zrz-b5-bEm"/>
+                                    <constraint firstItem="CqN-q4-iqw" firstAttribute="top" secondItem="Lp4-R7-qu5" secondAttribute="top" constant="16" id="qfY-ku-o6l"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1701,22 +1548,13 @@
                     <navigationItem key="navigationItem" title="And" id="ffK-6B-Zdr"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="button1" destination="hax-pP-wcy" id="1GZ-nN-lMx"/>
-                        <outlet property="button10" destination="AE6-FR-l5M" id="tEr-x2-oIP"/>
-                        <outlet property="button2" destination="q4Z-Il-1nI" id="Z0o-vc-Ryx"/>
-                        <outlet property="button3" destination="ADN-un-9Cb" id="7hS-12-mIi"/>
-                        <outlet property="button4" destination="fy2-NY-DWM" id="Sfh-gt-VO6"/>
-                        <outlet property="button5" destination="lz2-wh-RDC" id="i9O-je-9tv"/>
-                        <outlet property="button6" destination="9Jw-Mk-VMS" id="Yzc-FP-vkO"/>
-                        <outlet property="button7" destination="LUC-cm-Gbi" id="iSC-i2-i0K"/>
-                        <outlet property="button8" destination="GaY-mX-Yt9" id="UHy-af-qe0"/>
-                        <outlet property="button9" destination="XWS-s3-lu1" id="Kkm-Do-m1K"/>
+                        <outlet property="informedTypeTextField" destination="CqN-q4-iqw" id="bar-Kv-D3h"/>
                         <outlet property="termButton" destination="x3z-9l-5Ic" id="Wa4-1T-Lft"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OhN-Ub-p54" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3099.0234375" y="115.625"/>
+            <point key="canvasLocation" x="2755" y="115"/>
         </scene>
         <!--Survey Table View Controller-->
         <scene sceneID="3ps-Qd-M21">
@@ -1770,7 +1608,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OSA-3K-mNr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3153" y="938"/>
+            <point key="canvasLocation" x="2809" y="937"/>
         </scene>
         <!--Survey View Controller-->
         <scene sceneID="hfA-Eq-wpg">
@@ -1854,7 +1692,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CMc-1L-hdq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2375" y="919"/>
+            <point key="canvasLocation" x="2032" y="918"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ooW-3D-mYU">
@@ -1872,7 +1710,91 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gdj-w7-tT7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="166" y="115"/>
+            <point key="canvasLocation" x="531" y="115"/>
+        </scene>
+        <!--Haberdar Olma Şekli-->
+        <scene sceneID="Qw5-6l-kf9">
+            <objects>
+                <tableViewController storyboardIdentifier="InformedTypeTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="S0t-oD-qff" customClass="InformedTypeTableViewController" customModule="And" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="W8W-AM-cKV">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Haberdar olma şekli giriniz" id="lyJ-Xa-mO0">
+                            <rect key="frame" x="0.0" y="0.0" width="768" height="56"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <scopeButtonTitles>
+                                <string>Title</string>
+                                <string>Title</string>
+                            </scopeButtonTitles>
+                            <connections>
+                                <outlet property="delegate" destination="S0t-oD-qff" id="VIs-K3-aNN"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" id="3at-Ah-YQd">
+                                <rect key="frame" x="0.0" y="84" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3at-Ah-YQd" id="cNA-Ta-Oiz">
+                                    <rect key="frame" x="0.0" y="0.0" width="730" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="S0t-oD-qff" id="h73-Qv-lOe"/>
+                            <outlet property="delegate" destination="S0t-oD-qff" id="uKh-VE-Rtc"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Haberdar Olma Şekli" id="FMz-h9-5L8"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0zc-7p-8aj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3465" y="115"/>
+        </scene>
+        <!--Kaynak-->
+        <scene sceneID="oDX-1v-lt7">
+            <objects>
+                <tableViewController storyboardIdentifier="InformedTypeDetailTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="X84-HV-yVu" customClass="InformedTypeDetailTableViewController" customModule="And" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9Om-H8-U0I">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Kaynak giriniz" id="xxD-Sa-Oai">
+                            <rect key="frame" x="0.0" y="0.0" width="768" height="56"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <scopeButtonTitles>
+                                <string>Title</string>
+                                <string>Title</string>
+                            </scopeButtonTitles>
+                            <connections>
+                                <outlet property="delegate" destination="X84-HV-yVu" id="9x3-tL-bbH"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="Wzp-YC-cnu">
+                                <rect key="frame" x="0.0" y="84" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wzp-YC-cnu" id="dB8-If-VVy">
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="X84-HV-yVu" id="QDV-Hu-rMu"/>
+                            <outlet property="delegate" destination="X84-HV-yVu" id="xTn-O7-UgB"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Kaynak" id="l2w-XD-lCS"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JTg-jC-EKn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4098" y="115"/>
         </scene>
     </scenes>
     <resources>

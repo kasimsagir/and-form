@@ -320,6 +320,16 @@ class UserUtils {
         defaults.synchronize()
     }
     
+    static func getInformedTypeDetail()->String{
+        let defaults = UserDefaults.standard
+        return defaults.string(forKey: "InformedTypeDetail") ?? ""
+    }
+    static func setInformedTypeDetail(InformedTypeDetail:String){
+        let defaults = UserDefaults.standard
+        defaults.set(InformedTypeDetail, forKey: "InformedTypeDetail")
+        defaults.synchronize()
+    }
+    
     static func getObjectId()->String{
         let defaults = UserDefaults.standard
         return defaults.string(forKey: "ObjectId") ?? ""
@@ -365,6 +375,7 @@ class UserUtils {
         UserUtils.setApartmentType4(ApartmentType4: "")
         UserUtils.setPurposeType(PurposeType: "")
         UserUtils.setInformedType(InformedType: "")
+        UserUtils.setInformedTypeDetail(InformedTypeDetail: "")
     }
 }
 

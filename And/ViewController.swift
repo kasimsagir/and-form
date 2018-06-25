@@ -13,7 +13,6 @@ import PKHUD
 
 class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    
     @IBOutlet weak var genderLabel: UILabel!
     @IBOutlet weak var martialStateLabel: UILabel!
     @IBOutlet weak var genderMale: UIButton!
@@ -602,6 +601,14 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
             present(alert, animated: true, completion: nil)
         }else if (telNoTextField.text?.isEmpty)! {
             let alert = UIAlertController(title: "Uyarı", message: "Lütfen telefon numarası giriniz.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Tamam", style: .cancel) {
+                (result : UIAlertAction) -> Void in
+                self.view.endEditing(true)
+            }
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
+        }else if (telNoTextField.text?[(telNoTextField.text?.startIndex)!] != "(" || telNoTextField.text![String.Index.init(encodedOffset: 4)] != ")") {
+            let alert = UIAlertController(title: "Uyarı", message: "Lütfen telefon numarasını doğru formatta giriniz. Örnek Format: (5xx)xxxxxxx", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "Tamam", style: .cancel) {
                 (result : UIAlertAction) -> Void in
                 self.view.endEditing(true)

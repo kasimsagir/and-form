@@ -160,18 +160,10 @@ class SurveyTableViewController : UITableViewController, UITextViewDelegate {
         }else {
             SurveyTableViewController.selectedChoices.remove(at: index)
         }
+        if sender.tag/100 < SurveyTableViewController.poll.count-1 {
+            tableView.scrollToRow(at: IndexPath(row: (sender.tag/100)+1 , section: 0), at: .bottom, animated: true)
+        }
         self.tableView.reloadData()
-        /*
-         let question = sender.tag/100
-         let index = searhcInSelectedChoices(questionId: question, searchedChoiceId: poll[question].Answers[sender.tag % 100].Id)
-         if index == -1 {
-         let choiceId = Id()
-         choiceId.id = poll.questions![question].choices![sender.tag % 100].id
-         self.answers[question].selectedChoices.append(choiceId)
-         }else {
-         self.answers[question].selectedChoices.remove(at: index)
-         }
-         self.tableView.reloadData()*/
     }
     
     @objc func onRadioButtonAnswer(sender: UIButton){
@@ -186,20 +178,10 @@ class SurveyTableViewController : UITableViewController, UITextViewDelegate {
         }else {
             SurveyTableViewController.selectedChoices.remove(at: index)
         }
+        if sender.tag/100 < SurveyTableViewController.poll.count-1 {
+            tableView.scrollToRow(at: IndexPath(row: (sender.tag/100)+1 , section: 0), at: .bottom, animated: true)
+        }
         self.tableView.reloadData()
-        // self.tableView.reloadRows(at: [IndexPath(row: sender.tag/100, section: 0)], with: .automatic)
-        /*
-         let question = sender.tag/100
-         let index = searhcInSelectedChoices(questionId: question, searchedChoiceId: sender.tag % 100)
-         if index == -1 {
-         let choiceId = Id()
-         choiceId.id = poll.questions![question].choices![sender.tag % 100].id
-         self.answers[question].selectedChoices.removeAll()
-         self.answers[question].selectedChoices.append(choiceId)
-         }else {
-         self.answers[question].selectedChoices.remove(at: index)
-         }
-         self.tableView.reloadData()*/
     }
     
     func textViewDidChange(_ textView: UITextView) {
@@ -211,7 +193,12 @@ class SurveyTableViewController : UITableViewController, UITextViewDelegate {
         }else if index == -1 {
             SurveyTableViewController.selectedChoices.append(choiceId)
         }
-        
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.tag < SurveyTableViewController.poll.count-1 {
+            tableView.scrollToRow(at: IndexPath(row: (textView.tag)+1 , section: 0), at: .bottom, animated: true)
+        }
     }
     
     func searchInSelectedChoices(id: String)->Int{
@@ -233,15 +220,4 @@ class SurveyTableViewController : UITableViewController, UITextViewDelegate {
         }
         return -1
     }
-    /*
-     func searhcInSelectedChoices(questionId: Int, searchedChoiceId: String)->Int{
-     for item in answers[questionId].selectedChoices {
-     if item.id == searchedChoiceId {
-     return answers[questionId].selectedChoices.index(of: item)!
-     }
-     }
-     return -1
-     }*/
-    
-    
 }
