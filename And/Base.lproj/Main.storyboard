@@ -898,10 +898,10 @@
             </objects>
             <point key="canvasLocation" x="1239" y="115"/>
         </scene>
-        <!--And-->
+        <!--Step2ViewController-->
         <scene sceneID="wgz-LD-uGn">
             <objects>
-                <viewController storyboardIdentifier="Step2ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZOT-PM-yyB" customClass="Step2ViewController" customModule="And" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Step2ViewController" title="Step2ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZOT-PM-yyB" customClass="Step2ViewController" customModule="And" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="N3t-zO-ttq">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1497,8 +1497,8 @@
                                             <action selector="termAction:" destination="BFP-dN-Cve" eventType="touchUpInside" id="o3V-Me-dQb"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s9i-eE-RfU">
-                                        <rect key="frame" x="563" y="98" width="120" height="50"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s9i-eE-RfU">
+                                        <rect key="frame" x="480" y="98" width="120" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="Oc9-6h-2yW"/>
                                         </constraints>
@@ -1509,6 +1509,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="s9i-eE-RfU" firstAttribute="trailing" secondItem="x3z-9l-5Ic" secondAttribute="trailing" constant="15" id="7kH-By-OLH"/>
                                     <constraint firstItem="x3z-9l-5Ic" firstAttribute="centerX" secondItem="Lp4-R7-qu5" secondAttribute="centerX" id="EWn-HH-BAk"/>
                                     <constraint firstAttribute="trailing" secondItem="uxb-dE-ZAy" secondAttribute="trailing" constant="32" id="LJa-M0-EJ7"/>
                                     <constraint firstItem="CqN-q4-iqw" firstAttribute="leading" secondItem="Lp4-R7-qu5" secondAttribute="leading" constant="36" id="Lgw-P8-qdB"/>

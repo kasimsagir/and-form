@@ -51,7 +51,15 @@ class InformedTypeDetailTableViewController: UITableViewController, UISearchBarD
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         UserUtils.setInformedTypeDetail(InformedTypeDetail: filteredItems[indexPath.row])
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "Step3ViewController") as! Step3ViewController
-        self.navigationController?.pushViewController(vc, animated: true)
+        //let vc = self.storyboard?.instantiateViewController(withIdentifier: "Step3ViewController") as! Step3ViewController
+        //self.navigationController?.popToViewController(Step3ViewController.self, animated: true)
+        //self.navigationController?.pushViewController(vc, animated: true)
+        
+        let controllers = self.navigationController?.viewControllers
+        for vc in controllers! {
+            if vc is Step3ViewController {
+                self.navigationController?.popToViewController(vc as! Step3ViewController, animated: true)
+            }
+        }
     }
 }
