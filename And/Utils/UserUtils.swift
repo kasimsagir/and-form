@@ -300,6 +300,16 @@ class UserUtils {
         defaults.synchronize()
     }
     
+    static func getApartmentType5()->String{
+        let defaults = UserDefaults.standard
+        return defaults.string(forKey: "ApartmentType5") ?? ""
+    }
+    static func setApartmentType5(ApartmentType5:String){
+        let defaults = UserDefaults.standard
+        defaults.set(ApartmentType5, forKey: "ApartmentType5")
+        defaults.synchronize()
+    }
+    
     static func getPurposeType()->String{
         let defaults = UserDefaults.standard
         return defaults.string(forKey: "PurposeType") ?? ""
@@ -320,6 +330,16 @@ class UserUtils {
         defaults.synchronize()
     }
     
+    static func getInformedTypeValue()->String{
+        let defaults = UserDefaults.standard
+        return defaults.string(forKey: "InformedTypeValue") ?? ""
+    }
+    static func setInformedTypeValue(InformedTypeValue:String){
+        let defaults = UserDefaults.standard
+        defaults.set(InformedTypeValue, forKey: "InformedTypeValue")
+        defaults.synchronize()
+    }
+    
     static func getInformedTypeDetail()->String{
         let defaults = UserDefaults.standard
         return defaults.string(forKey: "InformedTypeDetail") ?? ""
@@ -327,6 +347,16 @@ class UserUtils {
     static func setInformedTypeDetail(InformedTypeDetail:String){
         let defaults = UserDefaults.standard
         defaults.set(InformedTypeDetail, forKey: "InformedTypeDetail")
+        defaults.synchronize()
+    }
+    
+    static func getInformedTypeDetailValue()->String{
+        let defaults = UserDefaults.standard
+        return defaults.string(forKey: "InformedTypeDetailValue") ?? ""
+    }
+    static func setInformedTypeDetailValue(InformedTypeDetailValue:String){
+        let defaults = UserDefaults.standard
+        defaults.set(InformedTypeDetailValue, forKey: "InformedTypeDetailValue")
         defaults.synchronize()
     }
     
@@ -373,9 +403,12 @@ class UserUtils {
         UserUtils.setApartmentType2(ApartmentType2: "")
         UserUtils.setApartmentType3(ApartmentType3: "")
         UserUtils.setApartmentType4(ApartmentType4: "")
+        UserUtils.setApartmentType5(ApartmentType5: "")
         UserUtils.setPurposeType(PurposeType: "")
         UserUtils.setInformedType(InformedType: "")
+        UserUtils.setInformedTypeValue(InformedTypeValue: "")
         UserUtils.setInformedTypeDetail(InformedTypeDetail: "")
+        UserUtils.setInformedTypeDetailValue(InformedTypeDetailValue: "")
     }
 }
 

@@ -8,16 +8,43 @@
 
 import Foundation
 import UIKit
+import PKHUD
 
 class InformedTypeDetailTableViewController: UITableViewController, UISearchBarDelegate {
-    var informedDetailTypes = ["google", "haber siteleri"]
+    var informedDetailTypes : [ZCRM_MOBILE_FORM_WS_BspWdDropdownLine] = []
     
-    var filteredItems : [String] = []
+    var filteredItems : [ZCRM_MOBILE_FORM_WS_BspWdDropdownLine] = []
     
     
     override func viewDidLoad() {
         self.navigationController?.isNavigationBarHidden = false
-        filteredItems = informedDetailTypes
+        self.title = UserUtils.getInformedTypeValue()
+        getInformedTypesDetail(informedType: UserUtils.getInformedType())
+    }
+    
+    func getInformedTypesDetail(informedType: String){
+        PKHUD.sharedHUD.show()
+        let client = ZCRM_MOBILE_FORM_WS(endpoint: "http://SSAGYCRMD01.anadolu.corp:8000/sap/bc/srt/rfc/sap/zcrm_mobile_form_ws/200/zcrm_mobile_form_ws/zcrm_mobile_form_ws")
+        let request = client.request(ZCRM_MOBILE_FORM_WS_ZcrmGetFieldShWs(IvAnaKaynak: informedType, IvCountry: "", IvFieldname: "kaynak", IvRegion: ""))
+        request.onComplete{
+            (r) in
+            PKHUD.sharedHUD.hide()
+            if let informedTypeResponse = r.value?.EtValues.item {
+                self.informedDetailTypes = informedTypeResponse
+                self.filteredItems = informedTypeResponse
+                self.tableView.reloadData()
+            }else {
+                let alert = UIAlertController(title: "Hata", message: "Sunucuya bağlanamadı.", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "Tamam", style: .cancel)
+                let tryAction = UIAlertAction(title: "Tekrar Dene", style: .default) {
+                    (result : UIAlertAction) -> Void in
+                    self.getInformedTypesDetail(informedType: informedType)
+                }
+                alert.addAction(okAction)
+                alert.addAction(tryAction)
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -30,8 +57,8 @@ class InformedTypeDetailTableViewController: UITableViewController, UISearchBarD
     }
     
     func filterContentForSearchText(_ searchText: String, scope: String = "All") {
-        filteredItems = informedDetailTypes.filter({( item : String) -> Bool in
-            return item.lowercased().contains(searchText.lowercased())
+        filteredItems = informedDetailTypes.filter({( item : ZCRM_MOBILE_FORM_WS_BspWdDropdownLine) -> Bool in
+            return item.Value.lowercased().contains(searchText.lowercased())
         })
     }
     
@@ -45,16 +72,13 @@ class InformedTypeDetailTableViewController: UITableViewController, UISearchBarD
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = filteredItems[indexPath.row]
+        cell.textLabel?.text = filteredItems[indexPath.row].Value
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        UserUtils.setInformedTypeDetail(InformedTypeDetail: filteredItems[indexPath.row])
-        //let vc = self.storyboard?.instantiateViewController(withIdentifier: "Step3ViewController") as! Step3ViewController
-        //self.navigationController?.popToViewController(Step3ViewController.self, animated: true)
-        //self.navigationController?.pushViewController(vc, animated: true)
-        
+        UserUtils.setInformedTypeDetail(InformedTypeDetail: filteredItems[indexPath.row].Key)
+        UserUtils.setInformedTypeDetailValue(InformedTypeDetailValue: filteredItems[indexPath.row].Value)
         let controllers = self.navigationController?.viewControllers
         for vc in controllers! {
             if vc is Step3ViewController {

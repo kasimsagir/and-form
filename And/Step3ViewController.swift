@@ -20,7 +20,6 @@ class Step3ViewController: UIViewController  {
     var dismissProblem = true
     
     override func viewDidLoad() {
-        reloadDataFromUserDefaults()
         let myMutableString = NSMutableAttributedString(string: (termButton.titleLabel?.text)!, attributes: nil)
         myMutableString.addAttribute(.foregroundColor, value: UIColor.blue, range: NSRange(location:33,length:8))
         termButton.titleLabel?.attributedText = myMutableString
@@ -28,6 +27,10 @@ class Step3ViewController: UIViewController  {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        reloadDataFromUserDefaults()
     }
     
     @IBAction func informedTypeTextFieldAction(_ sender: HoshiTextField) {
@@ -42,9 +45,9 @@ class Step3ViewController: UIViewController  {
     }
     
     func reloadDataFromUserDefaults(){
-        informedTypeTextField.text = UserUtils.getInformedType()
+        informedTypeTextField.text = UserUtils.getInformedTypeValue()
         if UserUtils.getInformedTypeDetail() != "" {
-            informedTypeTextField.text?.append(" - "+UserUtils.getInformedTypeDetail())
+            informedTypeTextField.text?.append(" - "+UserUtils.getInformedTypeDetailValue())
         }
         if UserUtils.getApproval() == "X" {
             termButton.isSelected = true
@@ -54,7 +57,9 @@ class Step3ViewController: UIViewController  {
     }
     
     func getPostData()->ZCRM_MOBILE_FORM_WS_ZcrmSCreateBpWs{
-        return ZCRM_MOBILE_FORM_WS_ZcrmSCreateBpWs.init(NameFirst: UserUtils.getNameFirst(), NameLast: UserUtils.getNameLast(), Birthdate: UserUtils.getFormatBirthdate(), Sex: UserUtils.getSex(), MaritalStat: UserUtils.getMaritalStat(), MobileNo: formatPhoneNumber(number: UserUtils.getMobileNo()), Email: UserUtils.getEmail(), Job: UserUtils.getJob(), Education: UserUtils.getEducation(), Company: UserUtils.getCompany(), Project: UserUtils.getProject(), Approval: UserUtils.getApproval(), Country: UserUtils.getCountry(), Region: UserUtils.getRegion(), City: UserUtils.getCityDetail(), County: UserUtils.getCity(), Street: UserUtils.getStreet(), HouseNo: UserUtils.getHouseNo(), PostCode: UserUtils.getPostCode(), Township: UserUtils.getTown(), DaireTip1: UserUtils.getApartmentType1(), DaireTip2: UserUtils.getApartmentType2(), DaireTip3: UserUtils.getApartmentType3(), DaireTip4: UserUtils.getApartmentType4(), SatinAmac: UserUtils.getPurposeType(), OdemeTercih: UserUtils.getPayType(), HaberdarOlma: "")
+        
+        
+        return ZCRM_MOBILE_FORM_WS_ZcrmSCreateBpWs.init(NameFirst: UserUtils.getNameFirst(), NameLast: UserUtils.getNameLast(), Birthdate: UserUtils.getFormatBirthdate(), Sex: UserUtils.getSex(), MaritalStat: UserUtils.getMaritalStat(), MobileNo: formatPhoneNumber(number: UserUtils.getMobileNo()), Email: UserUtils.getEmail(), Job: UserUtils.getJob(), Education: UserUtils.getEducation(), Company: UserUtils.getCompany(), Project: UserUtils.getProject(), Approval: UserUtils.getApproval(), Country: UserUtils.getCountry(), Region: UserUtils.getRegion(), City: UserUtils.getCityDetail(), County: UserUtils.getCity(), Street: UserUtils.getStreet(), HouseNo: UserUtils.getHouseNo(), PostCode: UserUtils.getPostCode(), Township: UserUtils.getTown(), DaireTip1: UserUtils.getApartmentType1(), DaireTip2: UserUtils.getApartmentType2(), DaireTip3: UserUtils.getApartmentType3(), DaireTip4: UserUtils.getApartmentType4(), DaireTip5: UserUtils.getApartmentType5(), SatinAmac: UserUtils.getPurposeType(), OdemeTercih: UserUtils.getPayType(), AnaKaynak: "", Kaynak: "")
     }
     
     func formatPhoneNumber(number: String) -> String{

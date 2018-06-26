@@ -97,6 +97,11 @@ class Step2ViewController: UIViewController {
         }else {
             apartmentType4.isSelected = false
         }
+        if UserUtils.getApartmentType5() == "X" {
+            apartmentType5.isSelected = true
+        }else {
+            apartmentType5.isSelected = false
+        }
     }
     
     @IBAction func buttonAction(_ sender: UIButton) {
@@ -110,6 +115,8 @@ class Step2ViewController: UIViewController {
                 UserUtils.setApartmentType3(ApartmentType3: "")
             }else if sender == apartmentType4 {
                 UserUtils.setApartmentType4(ApartmentType4: "")
+            }else if sender == apartmentType5 {
+                UserUtils.setApartmentType5(ApartmentType5: "")
             }else if sender == purposeType1 {   // OTURMA
                 if purposeType2.isSelected {    // YATIRIM
                     UserUtils.setPurposeType(PurposeType: "1")
@@ -133,6 +140,8 @@ class Step2ViewController: UIViewController {
                 UserUtils.setApartmentType3(ApartmentType3: "X")
             }else if sender == apartmentType4 {
                 UserUtils.setApartmentType4(ApartmentType4: "X")
+            }else if sender == apartmentType5 {
+                UserUtils.setApartmentType5(ApartmentType5: "X")
             }else if sender == purposeType1 {
                 if purposeType2.isSelected {
                     UserUtils.setPurposeType(PurposeType: "3")

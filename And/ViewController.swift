@@ -153,7 +153,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     func getCountry(){
         PKHUD.sharedHUD.show()
         let client = ZCRM_MOBILE_FORM_WS(endpoint: "http://SSAGYCRMD01.anadolu.corp:8000/sap/bc/srt/rfc/sap/zcrm_mobile_form_ws/200/zcrm_mobile_form_ws/zcrm_mobile_form_ws")
-        let request = client.request(ZCRM_MOBILE_FORM_WS_ZcrmGetFieldShWs(IvCountry: "", IvFieldname: "COUNTRY", IvRegion: ""))
+        let request = client.request(ZCRM_MOBILE_FORM_WS_ZcrmGetFieldShWs(IvAnaKaynak: "", IvCountry: "", IvFieldname: "COUNTRY", IvRegion: ""))
+        
         request.onComplete{
             (r) in
             PKHUD.sharedHUD.hide()
@@ -167,7 +168,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     func getCity(countryCode: String){
         PKHUD.sharedHUD.show()
         let client = ZCRM_MOBILE_FORM_WS(endpoint: "http://SSAGYCRMD01.anadolu.corp:8000/sap/bc/srt/rfc/sap/zcrm_mobile_form_ws/200/zcrm_mobile_form_ws/zcrm_mobile_form_ws")
-        let request = client.request(ZCRM_MOBILE_FORM_WS_ZcrmGetFieldShWs(IvCountry: countryCode, IvFieldname: "REGION", IvRegion: ""))
+        let request = client.request(ZCRM_MOBILE_FORM_WS_ZcrmGetFieldShWs(IvAnaKaynak: "", IvCountry: countryCode, IvFieldname: "REGION", IvRegion: ""))
+        
         request.onComplete{
             (r) in
             PKHUD.sharedHUD.hide()
@@ -599,7 +601,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
             }
             alert.addAction(okAction)
             present(alert, animated: true, completion: nil)
-        }else if (telNoTextField.text?.isEmpty)! {
+        }else if ((telNoTextField.text?.count)! < 12) {
             let alert = UIAlertController(title: "Uyarı", message: "Lütfen telefon numarası giriniz.", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "Tamam", style: .cancel) {
                 (result : UIAlertAction) -> Void in
