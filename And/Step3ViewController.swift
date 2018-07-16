@@ -112,10 +112,26 @@ class Step3ViewController: UIViewController  {
             (r) in
             PKHUD.sharedHUD.hide()
             if (r.value?.EtReturn.item[0].Type == "S") {
-                UserUtils.resetUser()
-                UserUtils.setObjectId(ObjectId: r.value?.EvObjectId ?? "")
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "SurveyViewController") as! SurveyViewController
-                self.navigationController?.pushViewController(vc, animated: true)
+                
+                let alert = UIAlertController(title: "Teşekkürler", message: "Formunuz başarıyla gönderildi. Size daha iyi hizmet verebilmek için düşünceleriniz bizim için çok  önemli.  Bizi değerlendirmek isterseniz kısa anketimizi doldurmak için ankete katıl butonuna tıklayabilirsiniz.", preferredStyle: .alert)
+                let destructiveAction = UIAlertAction(title: "Vazgeç", style: .default){
+                    (result : UIAlertAction) -> Void in
+                    UserUtils.resetUser()
+                    UserUtils.setObjectId(ObjectId: r.value?.EvObjectId ?? "")
+                    //let vc = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+                    self.navigationController?.popToRootViewController(animated: true)
+                }
+                let okAction = UIAlertAction(title: "Ankete Katıl", style: .default) {
+                    (result : UIAlertAction) -> Void in
+                    UserUtils.resetUser()
+                    UserUtils.setObjectId(ObjectId: r.value?.EvObjectId ?? "")
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "SurveyViewController") as! SurveyViewController
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+                alert.addAction(destructiveAction)
+                alert.addAction(okAction)
+                
+                self.present(alert, animated: true, completion: nil)
             }else {
                 let alert = UIAlertController(title: "Hata", message: "Sunucuya bağlanamadı.", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "Tamam", style: .cancel)
@@ -138,7 +154,7 @@ class Step3ViewController: UIViewController  {
             alert.addAction(okAction)
             present(alert, animated: true, completion: nil)
         }else {
-            let alert = UIAlertController(title: "Teşekkürler", message: "Katıldığınız için teşekkür ederiz. Göndermek için devam ediniz.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Teşekkürler", message: "Formu doldurduğunuz için teşekkür ederiz.", preferredStyle: .alert)
             let destructiveAction = UIAlertAction(title: "Vazgeç", style: .default)
             let okAction = UIAlertAction(title: "Devam Et", style: .default) {
                 (result : UIAlertAction) -> Void in

@@ -51,7 +51,7 @@ class SurveyViewController : UIViewController {
                 (r) in
                 PKHUD.sharedHUD.hide()
                 if (r.value?.EtReturn.item[0].Type == "S") {
-                    let alert = UIAlertController(title: "Teşekkürler", message: "Ankete katıldığınız için teşekkür ederiz.", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Teşekkürler", message: "Anket başarıyla tamamlandı. Düşüncelerinizi bizimle paylaştığınız için teşekkür ederiz.", preferredStyle: .alert)
                     let okAction = UIAlertAction(title: "Bitir", style: .default) {
                         (result : UIAlertAction) -> Void in
                         UserUtils.resetUser()

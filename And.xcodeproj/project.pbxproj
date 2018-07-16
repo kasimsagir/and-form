@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		860A1EEF20E21CE000AB00DC /* WSDL+ZCRM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860A1EEE20E21CE000AB00DC /* WSDL+ZCRM.swift */; };
 		860EEA3120CE62EE00CDDB02 /* SurveyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860EEA3020CE62EE00CDDB02 /* SurveyTableViewController.swift */; };
 		861759E320DE72CE0068B865 /* InformedTypeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861759E220DE72CE0068B865 /* InformedTypeTableViewController.swift */; };
 		863DE16A20CBCCED00D9332E /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863DE16920CBCCED00D9332E /* Utils.swift */; };
@@ -21,6 +20,7 @@
 		8691129920AC61040016C2BB /* QuestionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8691129820AC61040016C2BB /* QuestionsTableViewCell.swift */; };
 		8691129B20AC64990016C2BB /* AnswerRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8691129A20AC64990016C2BB /* AnswerRequestModel.swift */; };
 		8691129D20AC64AD0016C2BB /* Id.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8691129C20AC64AC0016C2BB /* Id.swift */; };
+		86A6045020FCB73900F3A2AE /* WSDL+ZCRM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6044F20FCB73900F3A2AE /* WSDL+ZCRM.swift */; };
 		86E8A69520A5D05F0050F451 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E8A69420A5D05F0050F451 /* AppDelegate.swift */; };
 		86E8A69720A5D05F0050F451 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E8A69620A5D05F0050F451 /* ViewController.swift */; };
 		86E8A69A20A5D05F0050F451 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86E8A69820A5D05F0050F451 /* Main.storyboard */; };
@@ -35,7 +35,6 @@
 /* Begin PBXFileReference section */
 		30A1AB12D54AD8B3BE09CD69 /* Pods_And.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_And.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E5E0DE7AA13217306DCA3BC /* Pods-And.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-And.debug.xcconfig"; path = "Pods/Target Support Files/Pods-And/Pods-And.debug.xcconfig"; sourceTree = "<group>"; };
-		860A1EEE20E21CE000AB00DC /* WSDL+ZCRM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "WSDL+ZCRM.swift"; path = "../../../../../../WSDL+ZCRM.swift"; sourceTree = "<group>"; };
 		860EEA3020CE62EE00CDDB02 /* SurveyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyTableViewController.swift; sourceTree = "<group>"; };
 		861759E220DE72CE0068B865 /* InformedTypeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformedTypeTableViewController.swift; sourceTree = "<group>"; };
 		863DE16920CBCCED00D9332E /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -49,6 +48,7 @@
 		8691129820AC61040016C2BB /* QuestionsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionsTableViewCell.swift; sourceTree = "<group>"; };
 		8691129A20AC64990016C2BB /* AnswerRequestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerRequestModel.swift; sourceTree = "<group>"; };
 		8691129C20AC64AC0016C2BB /* Id.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Id.swift; sourceTree = "<group>"; };
+		86A6044F20FCB73900F3A2AE /* WSDL+ZCRM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WSDL+ZCRM.swift"; sourceTree = "<group>"; };
 		86E8A69120A5D05F0050F451 /* And.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = And.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86E8A69420A5D05F0050F451 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86E8A69620A5D05F0050F451 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -98,7 +98,7 @@
 		86AF653D20B5B1F2001448AC /* SOAP Model */ = {
 			isa = PBXGroup;
 			children = (
-				860A1EEE20E21CE000AB00DC /* WSDL+ZCRM.swift */,
+				86A6044F20FCB73900F3A2AE /* WSDL+ZCRM.swift */,
 			);
 			path = "SOAP Model";
 			sourceTree = "<group>";
@@ -307,7 +307,7 @@
 				8675C8F220C2DDB10015517B /* SearchTableViewController.swift in Sources */,
 				86736E6620E0DAFA0085FDB1 /* InformedTypeDetailTableViewController.swift in Sources */,
 				8691129920AC61040016C2BB /* QuestionsTableViewCell.swift in Sources */,
-				860A1EEF20E21CE000AB00DC /* WSDL+ZCRM.swift in Sources */,
+				86A6045020FCB73900F3A2AE /* WSDL+ZCRM.swift in Sources */,
 				863DE16A20CBCCED00D9332E /* Utils.swift in Sources */,
 				86FBA03720CA779A0023BD55 /* UserUtils.swift in Sources */,
 				8691129720AC608B0016C2BB /* PollQuestionChoice.swift in Sources */,
