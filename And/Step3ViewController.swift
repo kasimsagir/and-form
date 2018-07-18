@@ -77,6 +77,13 @@ class Step3ViewController: UIViewController  {
     }
     
     @IBAction func openTermsAction(_ sender: UIButton) {
+        /*
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "TermsViewController") as! TermsViewController
+        let popvc = vc.popoverPresentationController
+        popvc?.permittedArrowDirections = UIPopoverArrowDirection.any
+        self.navigationController?.pushViewController(vc, animated: true)
+        */
+        /*
         let alertView = UIAlertController(title: "Kullanım Koşulları", message: Constant.termsText, preferredStyle: .alert)
         
         let destructiveAction = UIAlertAction(title: "Kabul Etmiyorum", style: .destructive) {
@@ -92,6 +99,7 @@ class Step3ViewController: UIViewController  {
         alertView.addAction(okAction)
         alertView.addAction(destructiveAction)
         self.present(alertView, animated: true, completion: nil)
+         */
     }
     
     @IBAction func termAction(_ sender: UIButton) {

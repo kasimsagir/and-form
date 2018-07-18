@@ -1331,6 +1331,50 @@
             </objects>
             <point key="canvasLocation" x="2061" y="115"/>
         </scene>
+        <!--Kullanım Koşulları-->
+        <scene sceneID="C9h-je-5nT">
+            <objects>
+                <viewController storyboardIdentifier="TermsViewController" title="Kullanım Koşulları" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9e6-Ow-JrW" customClass="TermsViewController" customModule="And" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2CV-2g-rFf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bw5-3r-G7k">
+                                <rect key="frame" x="8" y="45" width="304" height="407"/>
+                                <mutableString key="text">Üye olarak vermiş olduğum Kişisel verilerimin AND Anadolu Gayrimenkul Yatırımları A.Ş.(Şirket) tarafından Şirket’in ürün, hizmet ve projelerinin tanıtımı ve pazarlaması, marka hakkındaki algı düzeyini artırmaya yönelik aksiyonların ve marka yönetimi faaliyetlerinin planlanması ve icrası, toplantı, davet ve etkinliklerin planlanması, Proje ve hizmetler ile ilgili beğeni, memnuniyet çalışma ve analizlerinin gerçekleştirilmesi; tüketicilere özel kampanyalar, promosyonlar planlanması ve icrası, Pazar araştırması yapılması, talep ve şikayetlerin alınması (Amaçlar) amaçlarıyla işlenmesine, saklanmasına ve bu Amaçların gerçekleştirilmesi amacıyla şirketin iştiraklerine, yurt içindeki veya yurt dışında dışarıdan hizmet alınan kişilere, hizmet sağlayıcılara, iştiraklerine, tedarikçilerine ve ayrıca kanunen yetkili kamu kurumları ve/veya özel kişilere, 6698 sayılı Kanun’un 8. ve 9. maddelerinde belirtilen kişisel veri işleme şartları ve amaçları çerçevesinde aktarılmasına izin vermekteyim. Şirket’in web sitesinde yayınlanan Kişisel Veri İşleme Politikasında yer alan KVKK 11. Madde de düzenlenen  veri sahibi olarak haklarımın neler olduğunu bilmekteyim. 
+    
+    Ayrıca Şirket’in bu Amaçlar ile İletişim bilgilerimi kullanarak tarafıma her türlü elektronik iletişim araçları kanalı ile AND Kartal Gayrimenkul Yatırımları A.Ş. tarafından ticari ileti gönderilmesine, arama yapılmasına ve iletişim kurulmasına izin veriyorum. Bu iznin geri alınmasını istediğim zaman info@andgayrimenkul.com.tr  e-posta adresine göndereceğim e posta ile ya da 08503934000 numaralı hattı arayarak bu izni geri alabileceğimi bilmekteyim.</mutableString>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="11"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kullanım Koşulları" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DCs-OR-Y2J">
+                                <rect key="frame" x="16" y="0.0" width="288" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="kwN-my-L3O"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="DCs-OR-Y2J" firstAttribute="centerX" secondItem="HXl-XP-TX6" secondAttribute="centerX" id="003-72-y3b"/>
+                            <constraint firstItem="DCs-OR-Y2J" firstAttribute="width" secondItem="2CV-2g-rFf" secondAttribute="width" constant="-32" id="9WI-zu-8qs"/>
+                            <constraint firstItem="Bw5-3r-G7k" firstAttribute="top" secondItem="DCs-OR-Y2J" secondAttribute="bottom" id="I2o-We-4fl"/>
+                            <constraint firstItem="Bw5-3r-G7k" firstAttribute="trailing" secondItem="HXl-XP-TX6" secondAttribute="trailing" constant="-8" id="Ue1-ZI-Mwo"/>
+                            <constraint firstItem="DCs-OR-Y2J" firstAttribute="top" secondItem="HXl-XP-TX6" secondAttribute="top" id="UiP-rW-q5K"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Bw5-3r-G7k" secondAttribute="bottom" id="iTc-hj-Vpu"/>
+                            <constraint firstItem="Bw5-3r-G7k" firstAttribute="leading" secondItem="HXl-XP-TX6" secondAttribute="leading" constant="8" id="mAN-ba-UnR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="HXl-XP-TX6"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zyr-my-fPL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2754.6875" y="-568.359375"/>
+        </scene>
         <!--And-->
         <scene sceneID="HnW-ag-vSt">
             <objects>
@@ -1504,6 +1548,9 @@
                                         </constraints>
                                         <connections>
                                             <action selector="openTermsAction:" destination="BFP-dN-Cve" eventType="touchUpInside" id="aXD-qS-jKT"/>
+                                            <segue destination="9e6-Ow-JrW" kind="popoverPresentation" identifier="popover" popoverAnchorView="s9i-eE-RfU" id="wgL-dB-QS0">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" right="YES"/>
+                                            </segue>
                                         </connections>
                                     </button>
                                 </subviews>
