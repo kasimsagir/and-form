@@ -57,8 +57,6 @@ class Step3ViewController: UIViewController  {
     }
     
     func getPostData()->ZCRM_MOBILE_FORM_WS_ZcrmSCreateBpWs{
-        
-        
         return ZCRM_MOBILE_FORM_WS_ZcrmSCreateBpWs.init(NameFirst: UserUtils.getNameFirst(), NameLast: UserUtils.getNameLast(), Birthdate: UserUtils.getFormatBirthdate(), Sex: UserUtils.getSex(), MaritalStat: UserUtils.getMaritalStat(), MobileNo: formatPhoneNumber(number: UserUtils.getMobileNo()), Email: UserUtils.getEmail(), Job: UserUtils.getJob(), Education: UserUtils.getEducation(), Company: UserUtils.getCompany(), Project: UserUtils.getProject(), Approval: UserUtils.getApproval(), Country: UserUtils.getCountry(), Region: UserUtils.getRegion(), City: UserUtils.getCityDetail(), County: UserUtils.getCity(), Street: UserUtils.getStreet(), HouseNo: UserUtils.getHouseNo(), PostCode: UserUtils.getPostCode(), Township: UserUtils.getTown(), DaireTip1: UserUtils.getApartmentType1(), DaireTip2: UserUtils.getApartmentType2(), DaireTip3: UserUtils.getApartmentType3(), DaireTip4: UserUtils.getApartmentType4(), DaireTip5: UserUtils.getApartmentType5(), SatinAmac: UserUtils.getPurposeType(), OdemeTercih: UserUtils.getPayType(), AnaKaynak: "", Kaynak: "")
     }
     
@@ -77,29 +75,21 @@ class Step3ViewController: UIViewController  {
     }
     
     @IBAction func openTermsAction(_ sender: UIButton) {
-        /*
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "TermsViewController") as! TermsViewController
+        /*let vc = self.storyboard?.instantiateViewController(withIdentifier: "TermsViewController") as! TermsViewController
         let popvc = vc.popoverPresentationController
-        popvc?.permittedArrowDirections = UIPopoverArrowDirection.any
-        self.navigationController?.pushViewController(vc, animated: true)
-        */
-        /*
+        popvc?.sourceView = self.view
+        popvc?.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+        self.navigationController?.pushViewController(popvc, animated: true)
+*/
         let alertView = UIAlertController(title: "Kullanım Koşulları", message: Constant.termsText, preferredStyle: .alert)
         
-        let destructiveAction = UIAlertAction(title: "Kabul Etmiyorum", style: .destructive) {
-            (result : UIAlertAction) -> Void in
-            self.termButton.isSelected = false
-            UserUtils.setApproval(Approval: "")
-        }
-        let okAction = UIAlertAction(title: "Kabul Ediyorum", style: .default) {
-            (result : UIAlertAction) -> Void in
-            self.termButton.isSelected = true
-            UserUtils.setApproval(Approval: "X")
-        }
+        let okAction = UIAlertAction(title: "Tamam", style: .cancel, handler: {
+            (action) in
+        })
+        
         alertView.addAction(okAction)
-        alertView.addAction(destructiveAction)
+        
         self.present(alertView, animated: true, completion: nil)
-         */
     }
     
     @IBAction func termAction(_ sender: UIButton) {
@@ -120,26 +110,11 @@ class Step3ViewController: UIViewController  {
             (r) in
             PKHUD.sharedHUD.hide()
             if (r.value?.EtReturn.item[0].Type == "S") {
+                UserUtils.resetUser()
+                UserUtils.setObjectId(ObjectId: r.value?.EvObjectId ?? "")
                 
-                let alert = UIAlertController(title: "Teşekkürler", message: "Formunuz başarıyla gönderildi. Size daha iyi hizmet verebilmek için düşünceleriniz bizim için çok  önemli.  Bizi değerlendirmek isterseniz kısa anketimizi doldurmak için ankete katıl butonuna tıklayabilirsiniz.", preferredStyle: .alert)
-                let destructiveAction = UIAlertAction(title: "Vazgeç", style: .default){
-                    (result : UIAlertAction) -> Void in
-                    UserUtils.resetUser()
-                    UserUtils.setObjectId(ObjectId: r.value?.EvObjectId ?? "")
-                    //let vc = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-                    self.navigationController?.popToRootViewController(animated: true)
-                }
-                let okAction = UIAlertAction(title: "Ankete Katıl", style: .default) {
-                    (result : UIAlertAction) -> Void in
-                    UserUtils.resetUser()
-                    UserUtils.setObjectId(ObjectId: r.value?.EvObjectId ?? "")
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "SurveyViewController") as! SurveyViewController
-                    self.navigationController?.pushViewController(vc, animated: true)
-                }
-                alert.addAction(destructiveAction)
-                alert.addAction(okAction)
-                
-                self.present(alert, animated: true, completion: nil)
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "LastStepViewController") as! LastStepViewController
+                self.navigationController?.pushViewController(vc, animated: true)
             }else {
                 let alert = UIAlertController(title: "Hata", message: "Sunucuya bağlanamadı.", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "Tamam", style: .cancel)

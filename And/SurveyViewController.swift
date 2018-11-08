@@ -50,7 +50,7 @@ class SurveyViewController : UIViewController {
             request.onComplete{
                 (r) in
                 PKHUD.sharedHUD.hide()
-                if (r.value?.EtReturn.item[0].Type == "S") {
+                if (r.error == nil) {
                     let alert = UIAlertController(title: "Teşekkürler", message: "Anket başarıyla tamamlandı. Düşüncelerinizi bizimle paylaştığınız için teşekkür ederiz.", preferredStyle: .alert)
                     let okAction = UIAlertAction(title: "Bitir", style: .default) {
                         (result : UIAlertAction) -> Void in
@@ -61,7 +61,7 @@ class SurveyViewController : UIViewController {
                     alert.addAction(okAction)
                     self.present(alert, animated: true, completion: nil)
                 }else{
-                    let alert = UIAlertController(title: "Hata", message: "Sunucuya bağlanamadı.", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Hata", message: r.error?.localizedDescription, preferredStyle: .alert)
                     let okAction = UIAlertAction(title: "Tamam", style: .cancel)
                     let tryAction = UIAlertAction(title: "Tekrar Dene", style: .default) {
                         (result : UIAlertAction) -> Void in

@@ -15,6 +15,7 @@
 		8655ED1D20BED53D005EBDE3 /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8655ED1C20BED53D005EBDE3 /* SurveyViewController.swift */; };
 		86736E6620E0DAFA0085FDB1 /* InformedTypeDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86736E6520E0DAFA0085FDB1 /* InformedTypeDetailTableViewController.swift */; };
 		8675C8F220C2DDB10015517B /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8675C8F120C2DDB10015517B /* SearchTableViewController.swift */; };
+		868DC7CC21946C86009240FD /* LastStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868DC7CB21946C86009240FD /* LastStepViewController.swift */; };
 		8691129320AC60180016C2BB /* Poll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8691129220AC60180016C2BB /* Poll.swift */; };
 		8691129520AC60810016C2BB /* PollQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8691129420AC60810016C2BB /* PollQuestion.swift */; };
 		8691129720AC608B0016C2BB /* PollQuestionChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8691129620AC608B0016C2BB /* PollQuestionChoice.swift */; };
@@ -44,6 +45,7 @@
 		8655ED1C20BED53D005EBDE3 /* SurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
 		86736E6520E0DAFA0085FDB1 /* InformedTypeDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformedTypeDetailTableViewController.swift; sourceTree = "<group>"; };
 		8675C8F120C2DDB10015517B /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		868DC7CB21946C86009240FD /* LastStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastStepViewController.swift; sourceTree = "<group>"; };
 		8691129220AC60180016C2BB /* Poll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Poll.swift; sourceTree = "<group>"; };
 		8691129420AC60810016C2BB /* PollQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollQuestion.swift; sourceTree = "<group>"; };
 		8691129620AC608B0016C2BB /* PollQuestionChoice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollQuestionChoice.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				86E8A69620A5D05F0050F451 /* ViewController.swift */,
 				86F639CD20A9B3DF00BD951E /* Step2ViewController.swift */,
 				86F639CF20A9B3E900BD951E /* Step3ViewController.swift */,
+				868DC7CB21946C86009240FD /* LastStepViewController.swift */,
 				8635625420FF21E200DC267A /* TermsViewController.swift */,
 				8655ED1C20BED53D005EBDE3 /* SurveyViewController.swift */,
 				860EEA3020CE62EE00CDDB02 /* SurveyTableViewController.swift */,
@@ -194,6 +197,9 @@
 		86E8A68920A5D05F0050F451 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					com.apple.gamecenter.Leaderboard,
+				);
 				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = Mobistech;
@@ -307,6 +313,7 @@
 				86F639D020A9B3E900BD951E /* Step3ViewController.swift in Sources */,
 				8691129B20AC64990016C2BB /* AnswerRequestModel.swift in Sources */,
 				860EEA3120CE62EE00CDDB02 /* SurveyTableViewController.swift in Sources */,
+				868DC7CC21946C86009240FD /* LastStepViewController.swift in Sources */,
 				8675C8F220C2DDB10015517B /* SearchTableViewController.swift in Sources */,
 				86736E6620E0DAFA0085FDB1 /* InformedTypeDetailTableViewController.swift in Sources */,
 				8691129920AC61040016C2BB /* QuestionsTableViewCell.swift in Sources */,

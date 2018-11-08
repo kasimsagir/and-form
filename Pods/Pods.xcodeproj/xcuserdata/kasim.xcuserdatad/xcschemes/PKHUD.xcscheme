@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F4B8C70379FF442A4FEB6759B3B7F9B8"
-               BlueprintName = "KissXML"
+               BlueprintIdentifier = "D7A75F149082140741FC1E0B5B2863C8"
+               BlueprintName = "PKHUD"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "KissXML.framework">
+               BuildableName = "PKHUD.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
